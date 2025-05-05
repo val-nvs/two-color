@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>X/Y Control with Hue & Size</title>
+
+  <!-- Load custom font -->
+  <link href="https://fonts.googleapis.com/css2?family=Honk:MORF,SHLN@0,0&display=swap" rel="stylesheet">
+
+  <!-- Global and component styles -->
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Honk', sans-serif;
+      line-height: 0.6;
+      user-select: none;
+    }
+    html, body {
+      background: #000;
+      height: 100%;
+      width: 100%;
+    }
+
+    /* Corner labels for X/Y degrees */
+    .corner-label {
+      position: absolute;
+      cursor: pointer;
+      z-index: 10;
+      height: 4.6rem;
+      overflow: hidden;
+    }
+    .top-left  { top: 0; left: 0; }
+    .top-right { top: 0; right: 0; }
+
+    /* Main container for controls & images */
+    .main-container {
+      margin: 4.8rem auto 0;
+      padding: 12px;
+      max-width: 800px;
+      background: #000;
+    }
+
+    /* Slider styles */
+    input[type="range"] {
+      width: 100%;
+      margin-bottom: 1rem;
+      -webkit-appearance: none;
+      background: #222;
+      height: 10px;
+      border-radius: 5px;
+      position: relative;
+      z-index: 1;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      background: rgba(255, 255, 255, 0);
+      border: 2px solid #555;
+      width: 30px;
+      height: 20px;
+      border-radius: 20%;
+      cursor: pointer;
+      z-index: 111;
+    }
+
+    /* Image styles */
+    img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    /* Paragraph text */
+    p {
+      color: #ccc;
+      background: transparent;
+    }
+
+    /* Buttons and file input */
+    button,
+    input[type="file"] {
+      display: block;
+      margin: 0 auto 1rem;
+      padding: 0.5rem;
+      font-size: 1rem;
+      color: #fff;
+      background: #555;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Control group wrapper */
+    .control-group {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    /* Floating labels on sliders */
+    .floating-base {
+      position: absolute;
+      top: 0.33rem;
+      left: 2%;
+      transform: translate(0, -50%);
+      pointer-events: none;
+      font-weight: bold;
+      color: #222;
+      background: rgba(255,255,255,0.3);
+      padding: 0;
+      z-index: 100;
+    }
+    .floating-right {
+      left: 98%;
+      transform: translate(-100%, -50%);
+    }
+
+    /* Bottom rows of images */
+    .bottom-row {
+      display: flex;
+      width: 100%;
+      gap: 4%;
+      margin-top: 1rem;
+    }
+    .bottom-row img {
+      flex: 1;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- X and Y degree labels -->
+  <div id="xLabel" class="corner-label top-left"></div>
+  <div id="yLabel" class="corner-label top-right"></div>
+
+  <div class="main-container">
+
+    <!-- X/Y angle slider -->
+    <div class="control-group">
+      <div class="floating-base">0</div>
+      <div class="floating-base floating-right">360</div>
+      <input id="angleSlider" type="range" min="0" max="359" value="120">
+    </div>
+
+    <!-- Sample image display -->
+    <div>
+      <img id="singleImage"
+           src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Toll_of_theSea_rescue-1922.jpg/960px-Toll_of_theSea_rescue-1922.jpg"
+           alt="Sample">
+    </div>
+
+    <!-- Color temperature slider -->
+    <div class="control-group">
+      <div class="floating-base">COLD</div>
+      <div class="floating-base floating-right">WARM</div>
+      <input id="kelSlider" type="range" min="-100" max="100" value="0">
+    </div>
+
+    <!-- Image source selector and upload/update buttons -->
+    <div style="display:flex; gap:10%;">
+      <select id="placeholderSelect">
+        <option value="checker">Color Checker</option>
+        <option value="bars">Color Bars</option>
+        <option value="apple">Apple Tree</option>
+      </select>
+      <input id="fileInput" type="file" accept="image/*" style="display:none">
+      <button id="uploadBtn">Upload</button>
+      <button id="updateBtn">Update images below</button>
+    </div>
+
+    <!-- First bottom row: original & temperature-affected -->
+    <div class="bottom-row" style="width:48%;">
+      <img id="img2" alt="Original/uploaded">
+      <img id="img3" alt="Temperature adjusted">
+    </div>
+
+    <!-- Second bottom row: RGB + yellow channel -->
+    <div class="bottom-row" style="width:24%;">
+      <img id="img4" alt="Red channel">
+      <img id="img5" alt="Green channel">
+      <img id="img6" alt="Blue channel">
+      <img id="img7" alt="Yellow channel (R+G)">
+    </div>
+
+    <!-- Third bottom row: grayscale channels -->
+    <div class="bottom-row" style="width:24%;">
+      <img id="img8" alt="Red grayscale">
+      <img id="img9" alt="Green grayscale">
+      <img id="img10" alt="Blue grayscale">
+      <img id="img11" alt="Yellow grayscale">
+    </div>
+
+    <!-- Fourth bottom row: tint and mix steps -->
+    <div class="bottom-row" style="width:24%;">
+      <img id="img12" alt="R-gray tinted with Y hue">
+      <img id="img13" alt="G-gray tinted with X hue">
+      <img id="img14" alt="img12 & img13 mixed">
+      <img id="img15" alt="img14 grayscale">
+    </div>
+
+    <!-- Fifth bottom row: final mixes -->
+    <div class="bottom-row" style="width:24%;">
+      <img id="img16" alt="img15 tinted with remaining RGB">
+      <img id="img17" alt="img14 & img16 mixed">
+      <img id="img18" alt="">
+      <img id="img19" alt="">
+    </div>
+
+    <!-- Caption area -->
+    <p>This is a sample image from Wikimedia Commons, licensed under CC0. You can use this area for captions or descriptions.</p>
+
+    <!-- Second image with its own caption -->
+    <div>
+      <img id="toll"
+           src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Toll_of_theSea_rescue-1922.jpg/960px-Toll_of_theSea_rescue-1922.jpg"
+           alt="Toll of the Sea">
+      <p>Toll of the Sea (1922) Two-Strip Technicolor</p>
+    </div>
+
+    <!-- Show/hide code buttons and textareas -->
+    <button id="showCode">Show Page code. Imgs replaced with key potentially SENSITIVE</button>
+    <div style="line-height:1; font-family:system-ui;">
+      <textarea id="htmlCode" cols="50" rows="8" readonly style="display:none; width:100%;"></textarea>
+      <textarea id="cssCode"  cols="50" rows="8" readonly style="display:none; width:100%;"></textarea>
+      <textarea id="jsCode"   cols="50" rows="8" readonly style="display:none; width:100%;"></textarea>
+    </div>
+
+  </div>
+
+  <!-- Core scripts -->
+  <script>
+    // --- X/Y Label & Slider Logic ---
+    const slider    = document.getElementById('angleSlider');
+    const xLabel    = document.getElementById('xLabel');
+    const yLabel    = document.getElementById('yLabel');
+    let xValue = 120, yValue = 180, controllingY = false;
+
+    function updateLabels() {
+      const yf = yValue - 180;
+      xLabel.textContent = xValue + '°';
+      yLabel.textContent = yf + '°';
+
+      const xA = `hsl(${xValue},100%,50%)`, xB = `hsl(${xValue},100%,20%)`;
+      const yA = `hsl(${yf},100%,50%)`, yB = `hsl(${yf},100%,30%)`;
+
+      if (controllingY) {
+        xLabel.style.fontSize = '5rem';
+        yLabel.style.fontSize = '8rem';
+        xLabel.style.color    = xB;
+        yLabel.style.color    = yA;
+      } else {
+        xLabel.style.fontSize = '8rem';
+        yLabel.style.fontSize = '5rem';
+        xLabel.style.color    = xA;
+        yLabel.style.color    = yB;
+      }
+    }
+
+    slider.addEventListener('input', () => {
+      controllingY ? yValue = +slider.value : xValue = +slider.value;
+      updateLabels();
+    });
+    xLabel.addEventListener('click', () => { controllingY = false; slider.value = xValue; updateLabels(); });
+    yLabel.addEventListener('click', () => { controllingY = true;  slider.value = yValue; updateLabels(); });
+    updateLabels();
+
+    // --- Image Upload & Channel Splitting ---
+    const defaultURL = document.getElementById('singleImage').src;
+    const img2       = document.getElementById('img2');
+    const img4       = document.getElementById('img4');
+    const img5       = document.getElementById('img5');
+    const img6       = document.getElementById('img6');
+    const fileInput  = document.getElementById('fileInput');
+    const uploadBtn  = document.getElementById('uploadBtn');
+
+    uploadBtn.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', e => {
+      const f = e.target.files[0];
+      if (!f) return;
+      processImage(URL.createObjectURL(f));
+    });
+
+    function processImage(src) {
+      img2.src = src;
+      const img = new Image();
+      img.crossOrigin = 'Anonymous';
+      img.onload = () => {
+        const w = img.width, h = img.height;
+        const canvas = document.createElement('canvas');
+        canvas.width = w; canvas.height = h;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        const data = ctx.getImageData(0, 0, w, h).data;
+
+        [img4, img5, img6].forEach((el, ci) => {
+          const c = document.createElement('canvas');
+          c.width = w; c.height = h;
+          const cx = c.getContext('2d');
+          const id = cx.createImageData(w, h);
+          for (let i = 0; i < data.length; i += 4) {
+            id.data[i + 0] = (ci === 0 ? data[i + 0] : 0);
+            id.data[i + 1] = (ci === 1 ? data[i + 1] : 0);
+            id.data[i + 2] = (ci === 2 ? data[i + 2] : 0);
+            id.data[i + 3] = data[i + 3];
+          }
+          cx.putImageData(id, 0, 0);
+          el.src = c.toDataURL();
+        });
+      };
+      img.src = src;
+    }
+
+    // Initialize with default image
+    processImage(defaultURL);
+
+    // --- Show/Hide Code Logic ---
+    const btn    = document.getElementById('showCode');
+    const htmlTa = document.getElementById('htmlCode');
+    const cssTa  = document.getElementById('cssCode');
+    const jsTa   = document.getElementById('jsCode');
+
+    btn.addEventListener('click', () => {
+      if (!htmlTa.value) {
+        // Clone and scrub images
+        const clone = document.documentElement.cloneNode(true);
+        clone.querySelectorAll('img').forEach(img => {
+          const src = img.getAttribute('src') || '';
+          if (src.startsWith('data:')) {
+            img.remove();
+          } else {
+            img.replaceWith(document.createTextNode(src));
+          }
+        });
+        // Populate textareas
+        htmlTa.value = clone.outerHTML;
+        cssTa.value  = Array.from(document.querySelectorAll('style'))
+                         .map(s => s.innerHTML.trim()).join('\n\n');
+        jsTa.value   = Array.from(document.querySelectorAll('script:not([src])'))
+                         .map(s => s.innerHTML.trim()).join('\n\n');
+      }
+      // Toggle visibility
+      [htmlTa, cssTa, jsTa].forEach(ta => {
+        ta.style.display = (ta.style.display === 'none') ? 'block' : 'none';
+      });
+      btn.textContent = (htmlTa.style.display === 'none')
+        ? 'Show Page code. Imgs replaced with key potentially SENSITIVE'
+        : 'Hide Page code';
+    });
+  </script>
+
+</body>
+</html>
