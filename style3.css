@@ -1,0 +1,45 @@
+ width:100%;
+  padding: 0rem;
+  background-color: transparent;}
+.button-row button {
+  padding: 0rem .6rem;
+ flex-grow:1;
+  font-size: 1rem;
+  font-family: sans-serif;
+  cursor: pointer;
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 0.4rem;
+  transition: background-color 0s, transform 0s;}
+.button-row button:hover {
+  background-color: #666;
+  transform: scale(1.05);}
+.button-row button:active {
+  background-color: #888;}
+
+
+
+
+
+
+html, body{
+  font-family: Atkinson Hyperlegible Next;
+  background:#000;
+ color:#0f0;
+  margin: 0;
+  padding: 0;}
+
+p{
+  display: block;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+
+#canvas {
+  display: block;
+  margin-top: 0;
+  max-width: 100%;
+  border: 1px solid #ccc;
+}
