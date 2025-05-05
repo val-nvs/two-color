@@ -1,4 +1,77 @@
- width:100%;
+/*custom fonts*/
+.honk-top {
+  font-family: "Honk", system-ui;
+  font-style: normal;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
+  font-size-adjust: 0.5;
+  font-size: 8rem;
+  line-height: 0.59;
+  letter-spacing: 0;
+  word-spacing: -2rem;
+  text-transform: uppercase;
+  text-shadow: none;
+ color: #f00;
+}
+
+
+.fat {margin:1rem;
+      margin-top:0;
+      margin-bottom:0;}
+
+.slider-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position:relative;}
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+  height: 1.6rem;
+  background: transparent; 
+  outline: none;}
+.slider::-webkit-slider-runnable-track {
+  height: .6rem;
+  background: #333;
+  border-radius: .5rem;}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 2rem;
+  height: 1.4rem;
+  background: #777;
+  border-radius: 5%;
+  cursor: pointer;
+  margin-top: -.4rem;
+  margin-left: -0;
+  margin-right: -00;}
+.slider-text {
+  position: absolute;
+  top: 50%;
+  left: 1.25rem;
+  transform: translate(-50%, -70%);
+  pointer-events: none;
+  font-size: 1rem;
+  font-family:"Honk";
+  line-height:.59;
+  background-color:#777;
+  color: #333;}
+.slider-text-right {left: unset; right:0}
+
+
+
+.button-row {
+  display: flex;
+  gap: 0.2rem;
+  justify-content: center;
+  flex-wrap: nowrap;
+  width:100%;
   padding: 0rem;
   background-color: transparent;}
 .button-row button {
