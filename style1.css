@@ -1,0 +1,53 @@
+/* reset & full-viewport */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+/* Controls bar */
+#hueControls {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  background: #dddddd;
+  align-items: center;
+}
+#hueControls label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+#hehe label {
+  display: flex;
+  flex-direction: column;
+  font-size: 8px;
+}
+#hueControls input[type="range"] {
+  width: 166px;
+  margin-top: 6px;
+}
+#hueControls span {
+  margin-left: 3px;
+  font-weight: bold;
+}
+
+/* File input styling */
+#imgInput {
+  position: absolute;
+  top: 3px;
+  right: 0px;
+  padding: 0px 0px;
+  font-size: 12px;
+}
+
+/* Canvas: centered, natural size up to viewport */
+#canvas {
+  display: block;
+  margin: 0 auto;
+  background: white;
+  max-width: 100vw;
+  max-height: calc(100vh - 90px); /* leave room for controls + file input */
+}
