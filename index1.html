@@ -1,0 +1,128 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Title</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+<div style="position:relative; width:100; height:0px; background:#ccc;">
+  <canvas id="c" style="position:absolute; top:0; right:0; width:64px;"></canvas>
+  <script>
+    let i = new Image(); i.crossOrigin = "anonymous";
+    i.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Linear_RGB_color_wheel.png/250px-Linear_RGB_color_wheel.png"; // use your image URL
+    i.onload = () => {
+      let c = document.getElementById("c"), x = c.getContext("2d");
+      c.width = i.width; c.height = i.height;
+      x.drawImage(i, 0, 0);
+      let d = x.getImageData(0, 0, c.width, c.height), p = d.data;
+      for (let j = 0; j < p.length; j += 4)
+        if (p[j] > 240 && p[j+1] > 240 && p[j+2] > 240) p[j+3] = 0;
+      x.putImageData(d, 0, 0);
+    };
+  </script>
+</div>
+
+<div id="hehe">
+<label>
+💡Uncheck [HTML] on
+ <br>.the top left to maximize.
+</label>
+</div>
+
+
+
+
+
+<div style="position:relative; width:100%; height:0px; background:#ccc;">
+  <canvas id="c" style="position:absolute; top:0; right:0; width:64px;"></canvas>
+  <script>
+    let i = new Image(); i.crossOrigin = "anonymous";
+    i.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Linear_RGB_color_wheel.png/250px-Linear_RGB_color_wheel.png"; // use your image URL
+    i.onload = () => {
+      let c = document.getElementById("c"), x = c.getContext("2d");
+      c.width = i.width; c.height = i.height;
+      x.drawImage(i, 0, 0);
+      let d = x.getImageData(0, 0, c.width, c.height), p = d.data;
+      for (let j = 0; j < p.length; j += 4)
+        if (p[j] > 240 && p[j+1] > 240 && p[j+2] > 240) p[j+3] = 0;
+      x.putImageData(d, 0, 0);
+    };
+  </script>
+</div>
+
+
+
+
+
+
+<div id="hueControls">
+
+  <label>
+    Long Hue:
+    <input id="hueL" type="range" min="0" max="360" value="0">
+    <span id="hueLval">0°</span>
+  </label>
+  <label>
+    Medium Hue:
+    <input id="hueM" type="range" min="0" max="360" value="120">
+    <span id="hueMval">120°</span>
+  </label>
+</div>
+
+<input type="file" id="imgInput" accept="image/*">
+
+<canvas id="canvas"></canvas>
+
+<div id="hehe">
+<label>
+  
+💡 🌹 0° Red. - - - ✅ 120° Green. - - - ⚗180° Cyan.
+<br>
+💡If one is 0°, keep the other between 120° and 240°
+<br>
+💡If one is 30°, keep the other between 150° and 270°
+<br>
+💡If one is 330°, keep the other between 90° and 210°
+</label>
+</div>
+
+<div>
+<canvas id="stickCanvas" width="100%" height="70"></canvas>
+<script>
+  (function() {
+    const canvas = document.getElementById("stickCanvas");
+
+  
+if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+
+    const pivotX = 5;
+    const pivotY = 35;
+    const length = 30;
+
+    let hueLValue = 0-90;
+    let hueMValue = 120-90;
+
+    function drawLineFromPivot(x, y, len, deg, color = "red") {
+      const rad = (deg * Math.PI) / 180;
+      const endX = x + Math.cos(rad) * len;
+      const endY = y + Math.sin(rad) * len;
+
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(endX, endY);
+      ctx.stroke();
+    }
+
+    drawLineFromPivot(pivotX, pivotY, length, hueLValue, "red");
+    drawLineFromPivot(pivotX, pivotY, length, hueMValue, "green");
+  })();
+</script>
+</div>
+</body>
+</html>
