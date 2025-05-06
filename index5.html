@@ -1,0 +1,112 @@
+<html><head>
+  <link rel="stylesheet" href="style3.css">
+  <!--Fonts--><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Honk&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head><body>
+
+  <div class="honk-top">
+   <span id="xLabel" class="corner-label top-left"></span>
+  <span id="yLabel" class="corner-label top-right"></span>
+ <!--  <p><span id="sliderValue">120</span>°</p>-->
+   </div>
+  
+  <div class="fat">
+
+
+   <div class="slider-container">
+    <input type="range" min="0" max="359" value="120" class="slider pulse-once" id="mySlider">
+    <p id="" class="slider-text">0</p> 
+    <p class="slider-text slider-text-right">360</p> 
+    </div>
+   <div class="slider-container">
+    <input type="range" min="0" max="100" value="50" class="slider pulse-once" id="mySlider2">
+    <p id="" class="slider-text">1</p> 
+    <p class="slider-text slider-text-right">1</p> 
+    </div>
+    
+<p>hi</p>
+   <div class="button-row">
+  <button id="btn1">1</button>
+  <button id="btn2">2</button>
+  <button id="btn3">3</button>
+  <button id="btn4">4</button>
+  <button id="btn5">5</button>
+  <button id="btn6">6</button>
+  <button id="btn7">7</button>
+  <button id="btn8">8</button>
+  <button id="btn9">9</button>
+</div>
+
+     <p class="pulse-once">hiiiii</p>
+   
+   <input type="file" id="uploader" accept="image/*">
+   <canvas id="canvas"></canvas>
+
+
+<p>hi</p>
+
+   
+
+   <p style="white-space:nowrap;line-height:1.3">
+<span style="display:inline-block;transform:scaleY(1.5);transform-origin:middle">
+  霜
+</span><span style="display:inline-block;transform:scaleY(1);transform-origin:middle">
+  柳黄
+</span></p>
+   
+   <script>
+    const slider   = document.getElementById('mySlider');
+    const xLabel   = document.getElementById('xLabel');
+    const yLabel   = document.getElementById('yLabel');
+    
+    let xValue = 120, yValue = 180, controllingY = false;   function updateLabels() {
+     // text
+     xLabel.textContent = '' + xValue + '°';
+     yLabel.textContent = '' + (yValue-180) + '°';
+     // hue -> color (hsl approximates hsv hue)
+     xLabel.style.color = `hsl(${xValue},100%,50%)`;
+     yLabel.style.color = `hsl(${(yValue-180)},100%,30%)`;
+     if (controllingY) {
+     yLabel.style.fontSize = '8rem';
+     xLabel.style.fontSize = '5rem';
+     xLabel.style.color = `hsl(${xValue},100%,20%)`;
+     yLabel.style.color = `hsl(${(yValue-180)},100%,50%)`;
+     } else {
+     xLabel.style.fontSize = '8rem';
+     yLabel.style.fontSize = '5rem';
+     xLabel.style.color = `hsl(${xValue},100%,50%)`;
+     yLabel.style.color = `hsl(${(yValue-180)},100%,20%)`;
+     }
+    }
+    
+slider.addEventListener('input', () => {
+      if (controllingY) yValue = +slider.value;
+      else              xValue = +slider.value;
+      updateLabels();
+    });
+
+    xLabel.addEventListener('click', () => {
+      controllingY = false;
+      slider.value = xValue;
+      updateLabels();
+    });
+    yLabel.addEventListener('click', () => {
+      controllingY = true;
+      slider.value = yValue;
+      updateLabels();
+    });
+
+    // init
+    updateLabels();
+  </script>
+
+   
+  
+   
+   
+   
+   
+
+
+</div><script defer src="script3.js"></script></body></html>
+
