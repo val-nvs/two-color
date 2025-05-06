@@ -43,6 +43,17 @@ html, body {
  /*filter: drop-shadow(2px 2px #f00) drop-shadow(-2px -2px #0f0) drop-shadow(-2px -2px #00f) drop-shadow(2px 2px #fff);}*/
 
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 8px;
+  border: 1px solid #ccc;
+  white-space: nowrap;  /* keep each on one line */
+}
+
+.left  { font-size: 8rem; }
+.right { font-size: 5rem; }
 
 
 
@@ -56,6 +67,10 @@ html, body {
 <body>
     
 <div class="header">
+ <span class="left">L Text</span>
+ <span class="right">R Text</span>
+</div>
+
     
     
     
