@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><html>
 <head><meta charset="UTF-8">
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -54,7 +54,7 @@ animation:morph 5s ease-in-out infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   font-family: "Honk", sans-serif;
-  font-height: 0.59; }
+  line-height: 0.59; }
 .left, .right {position:absolute; }
 .left {font-size:8rem; left:0; }
 .right {font-size:5rem; right:0; }
@@ -86,7 +86,7 @@ animation:morph 5s ease-in-out infinite alternate;
 .sliderTextL, .sliderTextR{
   font-size:0.5rem;
   font-family: "Atkinson Hyperlegible Next", sans-serif;
-  font-height: ;
+  line-height: ;
   position:absolute;
   top:50%;transform:translateY(-50%); }
 .sliderTextL{left:0.5rem; }
@@ -155,7 +155,7 @@ animation:morph 5s ease-in-out infinite alternate;
 
 <div id="imageBox">
  <img id="dynamicImage" alt="main image" src="D1E3B2D4-525A-4AA0-A4DD-550AC58A17FD.jpeg">
-</img>
+
 
 <button onclick="changeImage('DF283363-7955-457F-99C7-25A6DF29D89C.jpeg')">Change to Image 2</button>
 
@@ -165,8 +165,7 @@ animation:morph 5s ease-in-out infinite alternate;
  <p class="sliderTextR">100%</p>
 </div>
 
-    
-</div>
+
 
 <p>pp0</p>
 <p style="position: relative;">pp#</p>
@@ -198,7 +197,7 @@ hihi
 
 
 
-<div>
+</div>
 
 <script>
 
@@ -206,11 +205,9 @@ hihi
 
 
 //button changes image
-<script>
   function changeImage(newSrc) {
     document.getElementById('dynamicImage').src = newSrc;
   }
-</script>
 
 
 
