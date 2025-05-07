@@ -16,8 +16,9 @@
 .honk{font-family: "Honk", sans-serif;}
 
 @keyframes morph {
-  from { font-variation-settings: "MORF" 15; }
-  to   { font-variation-settings: "MORF" 10; }
+  0% { font-variation-settings: "MORF" 15; }
+  50% {font-variation-settings: "MORF" 10; }
+  100%{font-variation-settings: "MORF" 15; }
 }
 
 
@@ -266,7 +267,7 @@ hueSlider.addEventListener('change', () => {
 function triggerMorphAnimation(element) {
   element.style.animation = 'none'; // reset any current animation
   void element.offsetWidth; // force reflow
-  element.style.animation = 'morph 2s ease-in-out 1 alternate'; // Shorter, one-time animation
+  element.style.animation = 'morph 0.5s ease-in-out'; // Shorter, one-time animation
   element.style.animationFillMode = 'both'; // Ensure the animation stays at its final state
 }
 
