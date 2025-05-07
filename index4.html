@@ -115,6 +115,28 @@ animation:morph 5s ease-in-out infinite alternate;
   max-width: 100%;
   max-height: 100%; }
 
+/* photos */
+
+.image-card {
+  width: 100%; /* adjust to fit your layout */
+  border: 4px solid #fff;
+  border-radius: 12px;
+  overflow: hidden;      /* ensures the image doesn't spill over rounded corners */
+  text-align: center;    /* centers subtext */
+  background: #333;      /* optional: background for contrast */
+  color: #fff;           /* optional: text color */
+  font-family: "Atkinson+Hyperlegible+Next", sans-serif;
+  margin: 1rem auto;
+}
+.image-card img {
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid #ccc; /* optional separator */
+}
+.image-card .subtext {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
 
 
 
@@ -200,11 +222,16 @@ hihi
 柳黄
 </span></p>
 
-
-
-
-
 </div><!--end han-->
+
+
+
+
+<div class="photo-card">
+  <img alt="1922" class="photo" src=https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Toll_of_theSea_rescue-1922.jpg/960px-Toll_of_theSea_rescue-1922.jpg>
+  <p class="subtext"> 霜柳黄<—1922 </p>
+</div>
+
 
 
 </div><!--end app-->
@@ -268,7 +295,7 @@ hueSlider.addEventListener('change', () => {
 function triggerMorphAnimation(element) {
   element.style.animation = 'none'; // reset any current animation
   void element.offsetWidth; // force reflow
-  element.style.animation = 'morph 0.5s cubic-bezier(0.5, 0, 0.6, 1)'; // Shorter, one-time animation
+  element.style.animation = 'morph 0.5s cubic-bezier(0.9, 0, 0.1, 1)'; // Shorter, one-time animation
   element.style.animationFillMode = 'both'; // Ensure the animation stays at its final state
 }
 
