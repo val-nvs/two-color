@@ -34,7 +34,7 @@
 html, body {
  width: 100%;
  height: 100%;
- background:#888;}
+ background:#444;}
 
 
 /*
@@ -54,10 +54,16 @@ animation:morph 5s ease-in-out infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   font-family: "Honk", sans-serif;
-  line-height: 0.59; }
+  line-height: 0.59;
+  font-size-adjust: 0.5; }
 .left, .right {position:absolute; }
 .left {font-size:8rem; left:0; }
 .right {font-size:5rem; right:0; }
+
+/*app*/
+
+.app{
+  margin: auto 1rem; }
 
 /* sliders */
 
@@ -147,6 +153,8 @@ animation:morph 5s ease-in-out infinite alternate;
  <span class="right">R Text</span>
 </div>
 
+<div class="app">
+
 <div class="sliderBox">
  <input id="sliderA" class="slider pulse-once" type="range" min="0" value="120" max="359">
  <p class="sliderTextL">0</p> 
@@ -155,7 +163,6 @@ animation:morph 5s ease-in-out infinite alternate;
 
 <div id="imageBox">
  <img id="dynamicImage" alt="main image" src="D1E3B2D4-525A-4AA0-A4DD-550AC58A17FD.jpeg">
-
 
 <button onclick="changeImage('DF283363-7955-457F-99C7-25A6DF29D89C.jpeg')">Change to Image 2</button>
 
@@ -167,20 +174,10 @@ animation:morph 5s ease-in-out infinite alternate;
 
 
 
-<p>pp0</p>
-<p style="position: relative;">pp#</p>
-<p>pp1</p>
-<p>pp8</p>
-<span>sp0</span>
-<span>sp1</span>
-<span style="position: relative;">sp#</span>
-<span>sp8 ⋆⭐️🌟✨</span>
-<p class="han">黃黄柳霜 ⋆⭐️🌟✨1905LA 
-  
-  Anna May Wong (The Toll of the Sea)
-  竖排 霜柳黄 《海逝》
-  
-</p>
+<p>hi</p>
+<span>hi ⋆⭐️🌟✨</span>
+<p class="ehh"> Anna May Wong ⋆1905 (The Toll of the Sea)</p>
+<p class="han">黃柳霜 竖排 霜柳黄 《海逝》</p>
 
 
 
@@ -202,8 +199,10 @@ hihi
 
 
 
-</div>
+</div><!--end han-->
 
+
+</div><!--end app-->
 <script>
 
 
