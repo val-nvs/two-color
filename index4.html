@@ -83,7 +83,7 @@ animation:morph 5s ease-in-out infinite alternate;
   background: #555;
   border-radius: .5rem; }
 .slider::-webkit-slider-thumb {
-  animation:slide 2.5s ease-in-out forwards;
+  animation:slide 2s ease-in-out forwards;
   position:relative;
   width: 2rem;
   height: 1rem;
@@ -207,35 +207,34 @@ hihi
 
 
 
-const hueSlider     = document.getElementById('hueSlider');
-const xLabel        = document.getElementById('xLabel');
-const yLabelShifted = document.getElementById('yLabelShifted');
+const hueSlider = document.getElementById('hueSlider');
+const xLabel = document.getElementById('xLabel');
+const yLabel = document.getElementById('yLabel');
 let xValue = 120;
 let yValueShifted = 180;
-let controlY = false;
+let controllingY = false;
 
-let xValue = 120, yValue = 180, controllingY = false;   function updateLabels() {
-     // text
-     xLabel.textContent = '' + xValue + '°';
-     yLabel.textContent = '' + (yValue-180) + '°';
-     // hue -> color (hsl approximates hsv hue)
-     xLabel.style.color = `hsl(${xValue},100%,50%)`;
-     yLabel.style.color = `hsl(${(yValue-180)},100%,30%)`;
-     if (controllingY) {
+function updateLabels() {
+  xLabel.textContent = '' + xValue + '°';
+  yLabel.textContent = '' + (yValueShifted-180) + '°';
+  // hue -> color (hsl approximates hsv hue)
+  xLabel.style.color = `hsl(${xValue},100%,50%)`;
+  yLabel.style.color = `hsl(${(yValueShifted-180)},100%,30%)`;
+  if (controllingY) {
      yLabel.style.fontSize = '8rem';
      xLabel.style.fontSize = '5rem';
      xLabel.style.color = `hsl(${xValue},100%,20%)`;
-     yLabel.style.color = `hsl(${(yValue-180)},100%,50%)`;
+     yLabel.style.color = `hsl(${(yValueShifted-180)},100%,50%)`;
      } else {
      xLabel.style.fontSize = '8rem';
      yLabel.style.fontSize = '5rem';
      xLabel.style.color = `hsl(${xValue},100%,50%)`;
-     yLabel.style.color = `hsl(${(yValue-180)},100%,20%)`;
+     yLabel.style.color = `hsl(${(yValueShifted-180)},100%,20%)`;
      }
     }
     
 slider.addEventListener('input', () => {
-      if (controllingY) yValue = +slider.value;
+      if (controllingY) yValueShifted = +slider.value;
       else              xValue = +slider.value;
       updateLabels();
     });
@@ -246,7 +245,7 @@ xLabel.addEventListener('click', () => {
   updateLabels(); });
 yLabel.addEventListener('click', () => {
   controllingY = true;
-  slider.value = yValue;
+  slider.value = yValueShifted;
   updateLabels(); });
 
     updateLabels();
