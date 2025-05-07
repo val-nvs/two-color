@@ -95,15 +95,15 @@ animation:morph 5s ease-in-out infinite alternate;
 /* image */
 
 .imageBox {
-  width: 300px;
-  height: 200px;
-  overflow: hidden;
-  border: 1px solid #ccc;
+  width: 100%;
+  height: 8rem;
+  border: 3px solid #f00;
 }
 .imageBox img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* Ensures the image fits inside the container without distortion */
+  object-position: center; /* Centers the image within the container */
 }
 
 
