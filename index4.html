@@ -16,8 +16,8 @@
 .honk{font-family: "Honk", sans-serif;}
 
 @keyframes morph{from{ /*5-15/25/35*/
- font-variation-settings:"MORF" 6;}to{
- font-variation-settings:"MORF" 85;}}
+ font-variation-settings:"MORF" 0;}to{
+ font-variation-settings:"MORF" 18;}}
 
 @keyframes slide {
   20% {transform: translateX(0);}
@@ -235,9 +235,9 @@ function updateLabels() {
      }
     }
     
-slider.addEventListener('input', () => {
-      if (controllingY) yValueShifted = +slider.value;
-      else              xValue = +slider.value;
+hueSlider.addEventListener('input', () => {
+      if (controllingY) yValueShifted = +hueSlider.value;
+      else              xValue = +hueSlider.value;
       updateLabels();
     });
 
