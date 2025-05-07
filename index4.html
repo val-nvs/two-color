@@ -148,14 +148,14 @@ animation:morph 5s ease-in-out infinite alternate;
 </style></head><body>
     
 <div class="header">
- <span class="left">L Text</span>
- <span class="right">R Text</span>
+ <span id="xLabel" class="left">L</span>
+ <span id="yLabel" class="right">R</span>
 </div>
 
 <div class="app">
 
 <div class="sliderBox">
- <input id="sliderA" class="slider pulse-once" type="range" min="0" value="120" max="359">
+ <input id="hueSlider" class="slider pulse-once" type="range" min="0" value="120" max="359">
  <p class="sliderTextL">0</p> 
  <p class="sliderTextR">360</p>
 </div>
@@ -167,7 +167,7 @@ animation:morph 5s ease-in-out infinite alternate;
 <button onclick="changeImage('D1E3B2D4-525A-4AA0-A4DD-550AC58A17FD.jpeg')">Change to Image 2</button>
 
 <div class="sliderBox">
- <input id="sliderB" class="slider pulse-once" type="range" min="-100" value="0" max="100">
+ <input id="wbSlider" class="slider pulse-once" type="range" min="-100" value="0" max="100">
  <p class="sliderTextL">-100%</p> 
  <p class="sliderTextR">100%</p>
 </div>
@@ -206,6 +206,22 @@ hihi
 <script>
 
 
+
+const hueSlider     = document.getElementById('hueSlider');
+const xLabel        = document.getElementById('xLabel');
+const yLabelShifted = document.getElementById('yLabelShifted');
+let xValue = 120;
+let yValueShifted = 180;
+let controlY = false;
+
+xLabel.addEventListener('click', () => {
+  controllingY = false;
+  slider.value = xValue;
+  updateLabels(); });
+yLabel.addEventListener('click', () => {
+  controllingY = true;
+  slider.value = yValue;
+  updateLabels(); });
 
 
 //button changes image
