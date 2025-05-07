@@ -52,16 +52,19 @@ animation:morph 5s ease-in-out infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   font-family: "Honk", sans-serif;
-  font-height: 0.59;
-  
-}
-
+  font-height: 0.59; }
 .left, .right {position:absolute; }
 .left {font-size:8rem; left:0; }
 .right {font-size:5rem; right:0; }
 
+/* div */
+
 .sliderBox{
-  border: 1px solid #0ff; }
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #0ff;
+  position:relative; }
 .slider::-webkit-slider-runnable-track {
   height: .6rem;
   background: #555;
@@ -73,14 +76,15 @@ animation:morph 5s ease-in-out infinite alternate;
   height: 1rem;
   background: #aaa;
   border-radius: 10%; }
-.sliderL, .sliderR{
+.sliderTextL, .sliderTextR{
   font-size:0.5rem;
   font-family: "Honk", sans-serif;
-  font-height: 0.59; }
-.sliderL{left:0.5rem; }
-.sliderR{right:0.5rem; }
+  font-height: 0.59;
+  position:absolute }
+.sliderTextL{left:0.5rem; }
+.sliderTextR{right:0.5rem; }
 
-
+/* div */
 
 /*font-family: "Arial", "Verdana", "Helvetica", sans-serif, etc. */
 /*font-size: px, em, rem, %, vh, vw */
@@ -121,14 +125,14 @@ animation:morph 5s ease-in-out infinite alternate;
 
 <div class="sliderBox">
  <input id="sliderA" class="slider pulse-once" type="range" min="0" value="120" max="359">
- <p class="sliderL">0</p> 
- <p class="sliderR">360</p>
+ <p class="sliderTextL">0</p> 
+ <p class="sliderTextR">360</p>
 </div>
 
 <div class="sliderBox">
- <input id="sliderB" class="slider pulse-once" type="range" min="0" value="120" max="359">
- <p class="sliderL">0</p> 
- <p class="sliderR">360</p>
+ <input id="sliderB" class="slider pulse-once" type="range" min="-100" value="0" max="100">
+ <p class="sliderTextL">-100%</p> 
+ <p class="sliderTextR">100%</p>
 </div>
 
     
