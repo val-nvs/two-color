@@ -16,10 +16,11 @@
 .honk{font-family: "Honk", sans-serif;}
 
 @keyframes morph {
-  0% { font-variation-settings: "MORF" 15; }
-  50% {font-variation-settings: "MORF" 12; }
-  100%{font-variation-settings: "MORF" 15; }
-}
+  0% { font-variation-settings: "MORF" 10;}
+  100%{font-variation-settings: "MORF" 15;} }
+@keyframes morph0 {
+  0% { font-variation-settings: "MORF" 15;}
+  100%{font-variation-settings: "MORF" 10;} }
 
 
 @keyframes slide {
@@ -135,7 +136,7 @@ animation:morph 5s ease-in-out infinite alternate;
   margin: 1rem auto;
 }
 .image-card img {
-  width: 100%;
+  width: 10%;
   display: block;
   border-bottom: 1px solid #ccc; /* optional separator */
 }
@@ -287,6 +288,8 @@ yLabel.addEventListener('click', () => {
   updateLabels(); });
 
 
+
+
 hueSlider.addEventListener('change', () => {
   if (controllingY) {
     yValueShifted = +hueSlider.value;
@@ -295,14 +298,25 @@ hueSlider.addEventListener('change', () => {
     xValue = +hueSlider.value;
     triggerMorphAnimation(xLabel);
   }
-  updateLabels();
-});
-
+  updateLabels();});
 function triggerMorphAnimation(element) {
   element.style.animation = 'none'; // reset any current animation
   void element.offsetWidth; // force reflow
   element.style.animation = 'morph 0.5s cubic-bezier(0.9, 0, 0.1, 1)'; // Shorter, one-time animation
   element.style.animationFillMode = 'both'; // Ensure the animation stays at its final state
+}
+
+
+function triggerMorphAnimation(element) {
+  function animate() {
+    element.style.animation = 'none';
+    void element.offsetWidth;
+    element.style.animation = 'morph0 0.5s cubic-bezier(0.9, 0, 0.1, 1)';
+    element.style.animationFillMode = 'both';}
+  element.addEventListener('touchstart', e => {
+    e.preventDefault();
+    animate();
+  }, { passive: false });
 }
 
 
