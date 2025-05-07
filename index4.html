@@ -55,15 +55,19 @@ animation:morph 5s ease-in-out infinite alternate;
   height: 5rem;
   position:relative;
   padding: 0px;
-  box-shadow: 0 0 0 4px blue;
+  box-shadow: 0 0 0 1px blue;
   white-space: nowrap;
   overflow: hidden;
   font-family: "Honk", sans-serif;
   line-height: 0.59;
-  font-size-adjust: 0.5; }
-.left, .right {position:absolute; }
-.left {font-size:8rem; left:0; }
-.right {font-size:5rem; right:0; }
+  font-size-adjust: 0.5;
+}
+.left, .right {position:absolute;
+}
+.left {font-size:8rem; left:0;
+}
+.right {font-size:5rem; right:0;
+}
 
 /*app*/
 
@@ -87,31 +91,38 @@ animation:morph 5s ease-in-out infinite alternate;
   margin: 0;
   padding: 0;
   box-shadow: 0 0 0 4px green;
-  position:relative; }
+  position:relative;
+}
 .slider{
   width:100%;
   display: block;
-  position: relative; }
+  position: relative;
+}
 .slider::-webkit-slider-runnable-track {
   width: 100%;
   height: 1rem;
   background: #555;
-  border-radius: .5rem; }
+  border-radius: .5rem;
+}
 .slider::-webkit-slider-thumb {
   animation:slide 2s ease-in-out forwards;
   position:relative;
   width: 2rem;
   height: 1rem;
-  background: rgba(255,0,0,0,5);
-  border-radius: 0.5rem; }
+  background: rgba(255,0,0,0.5);
+  border-radius: 0.5rem;
+}
 .sliderTextL, .sliderTextR{
   font-size:0.5rem;
   font-family: "Atkinson Hyperlegible Next", sans-serif;
   line-height: ;
   position:absolute;
-  top:50%;transform:translateY(-50%); }
-.sliderTextL{left:0.5rem; }
-.sliderTextR{right:0.5rem; }
+  top:50%;transform:translateY(-50%);
+}
+.sliderTextL{left:0.5rem;
+}
+.sliderTextR{right:0.5rem;
+}
 
 /* image */
 
@@ -122,9 +133,11 @@ animation:morph 5s ease-in-out infinite alternate;
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 0 4px red;
+}
 #imageBox img {
   max-width: 100%;
-  max-height: 100%; }
+  max-height: 100%;
+}
 
 /* photos */
 
