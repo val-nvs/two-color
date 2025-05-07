@@ -181,8 +181,9 @@ animation:morph 5s ease-in-out infinite alternate;
 <p>hi</p>
 <span>hi ⋆⭐️🌟✨</span>
 <p class="ehh"> Anna May Wong ⋆1905 (The Toll of the Sea)</p>
-<p class="han">黃柳霜 竖排 <span style="display:inline-block;transform:scaleY(2)">霜</span>柳黄 《海逝》</p>
-
+<p class="han">黃柳霜 竖排 
+  <span style="display:inline-block;transform:scaleY(2)">霜</span>
+  <span style="display:inline-block;transform:scale(0.5)">柳</span>黄 《海逝》</p>
 
 
 <div class="han" style="background:#456;
@@ -267,7 +268,7 @@ hueSlider.addEventListener('change', () => {
 function triggerMorphAnimation(element) {
   element.style.animation = 'none'; // reset any current animation
   void element.offsetWidth; // force reflow
-  element.style.animation = 'morph 0.5s cubic-bezier(0.4, 0, 0.6, 1)'; // Shorter, one-time animation
+  element.style.animation = 'morph 0.5s cubic-bezier(0.5, 0, 0.6, 1)'; // Shorter, one-time animation
   element.style.animationFillMode = 'both'; // Ensure the animation stays at its final state
 }
 
