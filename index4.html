@@ -267,7 +267,7 @@ hueSlider.addEventListener('change', () => {
 function triggerMorphAnimation(element) {
   element.style.animation = 'none'; // reset any current animation
   void element.offsetWidth; // force reflow
-  element.style.animation = 'morph 0.5s ease-in-out'; // Shorter, one-time animation
+  element.style.animation = 'morph 0.5s cubic-bezier(0.4, 0, 0.6, 1)'; // Shorter, one-time animation
   element.style.animationFillMode = 'both'; // Ensure the animation stays at its final state
 }
 
