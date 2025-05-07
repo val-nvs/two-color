@@ -51,7 +51,7 @@ animation:morph 5s ease-in-out infinite alternate;
 .header {
   /*animation:morph 5s ease-in-out infinite alternate;*/
   width: 100%;
-  height: 8rem;
+  height: 5rem;
   position:relative;
   padding: 0px;
   border: 1px solid #00f;
@@ -67,7 +67,12 @@ animation:morph 5s ease-in-out infinite alternate;
 /*app*/
 
 .app{
-  margin: 0.5rem 0.5rem; }
+  margin: 0.5rem 0.5rem;
+  display: flex;
+  justify-content:center;
+  gap:20px
+  border: 1px solid #ff0;
+}
 
 /* sliders */
 
@@ -118,6 +123,7 @@ animation:morph 5s ease-in-out infinite alternate;
 /* photos */
 
 .image-card {
+  flex:1
   width: 100%; /* adjust to fit your layout */
   border: 4px solid #fff;
   border-radius: 12px;
