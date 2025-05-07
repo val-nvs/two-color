@@ -73,6 +73,10 @@ animation:morph 5s ease-in-out infinite alternate;
   justify-content:center;
   gap:20px;
   border: 1px solid #ff0;
+  background: linear-gradient(
+    0,         /* angle: 135° (bottom-left → top-right) */
+    #040 0%,     /* start color */
+    #555 100%    /* end color */);
 }
 
 /* sliders */
@@ -136,6 +140,7 @@ animation:morph 5s ease-in-out infinite alternate;
   margin: 1rem auto;
 }
 .image-card img {
+  flex:1;
   width: 10%;
   display: block;
   border-bottom: 1px solid #ccc; /* optional separator */
