@@ -44,14 +44,17 @@ animation:morph 5s ease-in-out infinite alternate;
 
 
 .header {
+  height: 10rem;
   position:relative;
   padding: 0px;
   border: 1px solid #00f;
-  white-space: nowrap;  /* keep each on one line */
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-.left {font-size:8rem; position:absolute; }
-.right {font-size:5rem; position:absolute; }
+.left, right {position:absolute}
+.left {font-size:8rem; left:0; }
+.right {font-size:5rem; right:0; }
 
 
 
