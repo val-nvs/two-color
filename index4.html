@@ -75,7 +75,7 @@ animation:morph 5s ease-in-out infinite alternate;
   display: flex;
   flex-direction: column;
   box-sizing:border-box;
-  gap:0rem;
+  gap:1rem;
   box-shadow: 0 0 0 1px yellow;
   background: linear-gradient(
     0,         /* angle: 135° (bottom-left → top-right) */
@@ -127,8 +127,6 @@ animation:morph 5s ease-in-out infinite alternate;
   width: 100%;
   aspect-ratio: 3/2;
   flex:1;
-  justify-content: center;
-  align-items: center;
   box-shadow: 0 0 0 1px red;
 }
 #imageBox img {
@@ -215,7 +213,9 @@ animation:morph 5s ease-in-out infinite alternate;
  <img id="dynamicImage" alt="main image" src="DF283363-7955-457F-99C7-25A6DF29D89C.jpeg">
 </div>
 
-<button onclick="changeImage('D1E3B2D4-525A-4AA0-A4DD-550AC58A17FD.jpeg')">Change to Image 2</button>
+<div class="buttons">
+<button class="button" onclick="changeImage('D1E3B2D4-525A-4AA0-A4DD-550AC58A17FD.jpeg')">Change to Image 2</button>
+</div>
 
 <div class="sliderBox">
  <input id="wbSlider" class="slider pulse-once" type="range" min="-100" value="0" max="100">
