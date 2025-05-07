@@ -214,6 +214,32 @@ let xValue = 120;
 let yValueShifted = 180;
 let controlY = false;
 
+let xValue = 120, yValue = 180, controllingY = false;   function updateLabels() {
+     // text
+     xLabel.textContent = '' + xValue + '°';
+     yLabel.textContent = '' + (yValue-180) + '°';
+     // hue -> color (hsl approximates hsv hue)
+     xLabel.style.color = `hsl(${xValue},100%,50%)`;
+     yLabel.style.color = `hsl(${(yValue-180)},100%,30%)`;
+     if (controllingY) {
+     yLabel.style.fontSize = '8rem';
+     xLabel.style.fontSize = '5rem';
+     xLabel.style.color = `hsl(${xValue},100%,20%)`;
+     yLabel.style.color = `hsl(${(yValue-180)},100%,50%)`;
+     } else {
+     xLabel.style.fontSize = '8rem';
+     yLabel.style.fontSize = '5rem';
+     xLabel.style.color = `hsl(${xValue},100%,50%)`;
+     yLabel.style.color = `hsl(${(yValue-180)},100%,20%)`;
+     }
+    }
+    
+slider.addEventListener('input', () => {
+      if (controllingY) yValue = +slider.value;
+      else              xValue = +slider.value;
+      updateLabels();
+    });
+
 xLabel.addEventListener('click', () => {
   controllingY = false;
   slider.value = xValue;
@@ -222,6 +248,19 @@ yLabel.addEventListener('click', () => {
   controllingY = true;
   slider.value = yValue;
   updateLabels(); });
+
+    updateLabels();
+
+
+
+
+
+
+
+
+
+
+
 
 
 //button changes image
