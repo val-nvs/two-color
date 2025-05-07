@@ -70,7 +70,8 @@ animation:morph 5s ease-in-out infinite alternate;
 .app{
   margin: 0.5rem 0.5rem;
   display: flex;
-  justify-content:center;
+  flex-direction: column;
+  box-sizing:border-box;
   gap:20px;
   border: 1px solid #ff0;
   background: linear-gradient(
@@ -117,7 +118,7 @@ animation:morph 5s ease-in-out infinite alternate;
 #imageBox {
   width: 100%;
   aspect-ratio: 3/2;
-  display: flex;
+  flex:1;
   justify-content: center;
   align-items: center;
   border: 1px solid #f00; }
