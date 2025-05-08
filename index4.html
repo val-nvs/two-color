@@ -40,6 +40,8 @@ html, body {
  width: 100%;
  height: 100%;
  background:#000;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -67,6 +69,15 @@ animation:morph 5s ease-in-out infinite alternate;
 .left {font-size:8rem; left:0;
 }
 .right {font-size:5rem; right:0;
+}
+
+.neck{
+  background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+  display: flex;
+  flex-direction: column;
+  width:90%;
+  gap:0.5rem;
+  box-shadow: 0 0 0 2px green;
 }
 
 /*app*/
@@ -192,13 +203,15 @@ object-fit: contain;
  <span id="yLabel" class="right">R</span>
 </div>
 
-<div class="app">
-
-<div class="sliderBox">
- <input id="hueSlider" class="slider pulse-once" type="range" min="0" value="120" max="359">
- <p class="sliderTextL">0</p> 
- <p class="sliderTextR">360</p>
+<div class="neck">
+  <div class="sliderBox">
+    <input id="hueSlider" class="slider pulse-once" type="range" min="0" value="120" max="359">
+    <p class="sliderTextL">0</p> 
+    <p class="sliderTextR">360</p>
+  </div>
 </div>
+
+<div class="app">
 
 <div id="imageBox">
  <img id="dynamicImage" alt="main image" src="DF283363-7955-457F-99C7-25A6DF29D89C.jpeg">
