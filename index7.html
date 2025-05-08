@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Honk:MORF@0..35&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Long+Cang&display=swap" rel="stylesheet">
+  <title>Slider Integration Demo</title>
+  <style>
+    :root {
+      --bg-main: #1e1e1e;
+      --bg-accent: #2a2a2a;
+      --text-primary: #fff;
+      --text-secondary: #bbb;
+      --rainbow: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+      --pinkorange: linear-gradient(to right, #ff758c, #ff7eb3, #ff9a76);
+      --wb-gradient: linear-gradient(to right, #a0e9fd, #ffffff, #d35400);
+      --button-bg: #444;
+      --button-hover: #555;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; color:var(--text-primary); }
+    html, body { height:100%; background:var(--bg-main); font-family:"Atkinson Hyperlegible Next",sans-serif; }
+    body { display:flex; flex-direction:column; align-items:center; }
+
+    /* HEADER */
+    .header {
+      width:100%; min-height:8rem; background:#000; box-shadow:0 0 0 1px blue;
+      font-family:"Honk",sans-serif; position:relative;
+    }
+    .left, .right {
+      position:absolute; top:50%; transform:translateY(-50%); line-height:1;
+    }
+    .left { left:0; font-size:8rem; }
+    .right{ right:0; font-size:5rem; }
+
+    /* MAIN CONTENT */
+    .suit {
+      width:100%; flex:1; display:flex; justify-content:center; align-items:flex-start;
+    }
+    .app {
+      width:100%; background:var(--bg-main); padding:1rem; display:flex;
+      flex-direction:column; gap:1.5rem; max-width:900px;
+    }
+
+    /* SLIDER BOX */
+    .sliderBox {
+      position:relative; width:100%; height:3rem;
+    }
+    .slider {
+      -webkit-appearance:none; width:100%; height:100%; background:transparent; cursor:pointer;
+    }
+    .slider::-webkit-slider-runnable-track {
+      height:1rem; border-radius:0.5rem;
+      background: var(--rainbow);
+      transition: background 0.3s;
+    }
+    .slider.y-mode::-webkit-slider-runnable-track {
+      background: var(--pinkorange);
+    }
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance:none; width:1rem; height:2rem;
+      background:rgba(255,0,0,0.5); border-radius:0.5rem; margin-top:-0.5rem;
+      transition:transform 0.2s, box-shadow 0.2s;
+    }
+    .slider::-webkit-slider-thumb:hover,
+    .slider::-webkit-slider-thumb:active {
+      transform:scale(1.2);
+      box-shadow:0 0 5px var(--pinkorange);
+    }
+    .sliderTextL, .sliderTextR {
+      position:absolute; top:50%; transform:translateY(-50%);
+      font-size:0.75rem; color:var(--text-secondary);
+    }
+    .sliderTextL { left:0.5rem; }
+    .sliderTextR { right:0.5rem; }
+
+    /* IMAGE BOX */
+    #imageBox {
+      width:100%; aspect-ratio:3/2; background:var(--bg-accent);
+      border-radius:0.5rem; overflow:hidden;
+    }
+    #imageBox img {
+      width:100%; height:100%; object-fit:cover; display:block;
+    }
+
+    /* BUTTON */
+    .buttons .button {
+      padding:0.6rem 1.2rem; background:var(--button-bg);
+      border:none; border-radius:0.3rem; cursor:pointer;
+      transition:background 0.2s;
+    }
+    .buttons .button:hover { background:var(--button-hover); }
+
+    /* SECOND SLIDER */
+    .wbSlider::-webkit-slider-runnable-track {
+      background: var(--wb-gradient);
+    }
+
+    /* HAN TEXT */
+    .han {
+      display:flex; justify-content:center; align-items:center;
+      font-family:"Long Cang",serif; font-size:1.8rem;
+      padding:1rem 0;
+    }
+
+    /* PHOTO CARDS */
+    .photo-card {
+      background:var(--bg-accent); border-radius:0.5rem;
+      overflow:hidden; box-shadow:0 0 1rem rgba(0,0,0,0.5); text-align:center;
+    }
+    .photo-card img { width:100%; display:block; }
+    .photo-card .subtext {
+      padding:0.5rem; font-size:0.9rem; color:var(--text-secondary);
+    }
+
+    /* KEYFRAMES */
+    @keyframes morph {
+      from { font-variation-settings:"MORF" 10; }
+      to   { font-variation-settings:"MORF" 15; }
+    }
+    @keyframes morph0 {
+      from { font-variation-settings:"MORF" 15; }
+      to   { font-variation-settings:"MORF" 10; }
+    }
+    @keyframes slide {
+      20% {transform:translateX(0);}
+      40% {transform:translateX(1rem);}
+      60% {transform:translateX(0);}
+      80% {transform:translateX(-1rem);}
+      100%{transform:translateX(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <span id="xLabel" class="left">L</span>
+    <span id="yLabel" class="right">R</span>
+  </div>
+
+  <div class="suit">
+    <div class="app">
+
+      <!-- FIRST SLIDER (hue) -->
+      <div class="sliderBox">
+        <input id="hueSlider" class="slider" type="range" min="0" max="359" value="120">
+        <div id="hueMin" class="sliderTextL">0°</div>
+        <div id="hueMax" class="sliderTextR">360°</div>
+      </div>
+
+      <!-- IMAGE -->
+      <div id="imageBox">
+        <img id="dynamicImage" src="DF283363-7955-457F-99C7-25A6DF29D89C.jpeg" alt="Main image">
+      </div>
+
+      <!-- BUTTON -->
+      <div class="buttons">
+        <button class="button" onclick="changeImage('D1E3B2D4-525A-4AA0-A4DD-550AC58A17FD.jpeg')">
+          Change to Image 2
+        </button>
+      </div>
+
+      <!-- SECOND SLIDER (wb) -->
+      <div class="sliderBox">
+        <input id="wbSlider" class="slider wbSlider" type="range" min="-100" max="100" value="0">
+        <div class="sliderTextL">–100%</div>
+        <div class="sliderTextR">100%</div>
+      </div>
+
+      <p>hii</p>
+
+      <div class="han">
+        <p>hi</p>
+      </div>
+
+      <!-- PHOTO CARDS… -->
+      <div class="photo-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Toll_of_theSea_rescue-1922.jpg/960px-Toll_of_theSea_rescue-1922.jpg" alt="1922">
+        <p class="subtext">(1922) Anna May Wong «The Toll of the Sea»</p>
+        <div class="han">
+          <span style="transform:scale(0.6)">（竖排）</span>
+          <span style="transform:scaleY(1.8)">霜</span>
+          <span style="transform:scale(1)">柳</span>
+          <span style="transform:scaleY(1.7)">黄</span>
+          <span>《海逝》</span>
+        </div>
+      </div>
+
+      <div class="photo-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Toll_of_theSea_rescue-1922.jpg/960px-Toll_of_theSea_rescue-1922.jpg" alt="Phantom of the Opera">
+        <p class="subtext">The Phantom of The Opera, 1925</p>
+      </div>
+
+      <div class="photo-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Toll_of_theSea_rescue-1922.jpg/960px-Toll_of_theSea_rescue-1922.jpg" alt="Sample">
+        <p class="subtext">hi</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const hueSlider   = document.getElementById('hueSlider');
+    const xLabel      = document.getElementById('xLabel');
+    const yLabel      = document.getElementById('yLabel');
+    const hueMinLabel = document.getElementById('hueMin');
+    const hueMaxLabel = document.getElementById('hueMax');
+    let   xValue      = 120;
+    let   yValueShift = 180;
+    let   controllingY = false;
+
+    function updateLabels() {
+      if (controllingY) {
+        // Y mode: –180 → 180
+        hueMinLabel.textContent = '–180°';
+        hueMaxLabel.textContent = '180°';
+        yLabel.textContent = (yValueShift - 180) + '°';
+        xLabel.textContent = xValue + '°';
+        yLabel.style.fontSize = '8rem';
+        xLabel.style.fontSize = '5rem';
+        yLabel.style.color = `hsl(${yValueShift - 180},100%,50%)`;
+        xLabel.style.color = `hsl(${xValue},100%,20%)`;
+        hueSlider.classList.add('y-mode');
+      } else {
+        // X mode: 0 → 360
+        hueMinLabel.textContent = '0°';
+        hueMaxLabel.textContent = '360°';
+        xLabel.textContent = xValue + '°';
+        yLabel.textContent = (yValueShift - 180) + '°';
+        xLabel.style.fontSize = '8rem';
+        yLabel.style.fontSize = '5rem';
+        xLabel.style.color = `hsl(${xValue},100%,50%)`;
+        yLabel.style.color = `hsl(${yValueShift - 180},100%,20%)`;
+        hueSlider.classList.remove('y-mode');
+      }
+    }
+
+    hueSlider.addEventListener('input', () => {
+      if (controllingY) yValueShift = +hueSlider.value;
+      else              xValue      = +hueSlider.value;
+      updateLabels();
+    });
+
+    xLabel.addEventListener('click', () => {
+      controllingY    = false;
+      hueSlider.value = xValue;
+      updateLabels();
+    });
+    yLabel.addEventListener('click', () => {
+      controllingY     = true;
+      hueSlider.value  = yValueShift;
+      updateLabels();
+    });
+
+    function currentLabelEl() {
+      return controllingY ? yLabel : xLabel;
+    }
+    function animatePress(el) {
+      el.style.animation = 'none'; void el.offsetWidth;
+      el.style.animation = 'morph0 0.3s cubic-bezier(0.9,0,0.1,1) forwards';
+    }
+    function animateRelease(el) {
+      el.style.animation = 'none'; void el.offsetWidth;
+      el.style.animation = 'morph 0.5s cubic-bezier(0.9,0,0.1,1) forwards';
+    }
+
+    ['mousedown','touchstart'].forEach(evt =>
+      hueSlider.addEventListener(evt, () => animatePress(currentLabelEl()))
+    );
+    ['mouseup','mouseleave','touchend','touchcancel'].forEach(evt =>
+      hueSlider.addEventListener(evt, () => animateRelease(currentLabelEl()))
+    );
+    hueSlider.addEventListener('change', () => {
+      if (controllingY) yValueShift = +hueSlider.value;
+      else              xValue      = +hueSlider.value;
+      animateRelease(currentLabelEl());
+      updateLabels();
+    });
+
+    function changeImage(src) {
+      document.getElementById('dynamicImage').src = src;
+    }
+
+    updateLabels();
+  </script>
+</body>
+</html>
