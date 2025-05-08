@@ -12,8 +12,14 @@
 
 <style>
 
-.han{font-family: "Long Cang", sans-serif; font-size:2rem;}
-.honk{font-family: "Honk", sans-serif;}
+.han{
+  font-family: "Long Cang", sans-serif;
+  font-size:2rem;
+  white-space: nowrap;
+  }
+.honk{
+  font-family: "Honk", sans-serif;
+}
 
 @keyframes morph {
   0% { font-variation-settings: "MORF" 10;}
@@ -162,7 +168,7 @@ height:100vh;
 /* photos */
 
 .photo-card {
-  width: 100%;
+  width: 95%;
   box-shadow: 0 0 0 1px orange;
   border-radius: 12px;
   overflow: hidden;      /* ensures the image doesn't spill over rounded corners */
@@ -178,8 +184,8 @@ height:100vh;
   box-shadow: 0 0 0 1px green;
 }
 .photo-card .subtext {
-  padding: 0.5rem;
-  font-size: 0.9rem;
+  padding: 0rem;
+  font-size: 1rem;
 object-fit: contain;
   font-family: "Atkinson+Hyperlegible+Next", sans-serif;
 }
@@ -272,7 +278,7 @@ object-fit: contain;
 
 <div class="photo-card">
   <img alt="1922" class="photo" src=https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Toll_of_theSea_rescue-1922.jpg/960px-Toll_of_theSea_rescue-1922.jpg>
-  <p class="subtext"> Anna May Wong (The Toll of the Sea, 1922)</p>
+  <p class="subtext">(1922) Anna May Wong «The Toll of the Sea»</p>
   <p class="han"><span style="display:inline-block;transform:scale(0.6)"><!--
     -->（竖排）</span><span style="display:inline-block;transform:scaleY(1.8)"><!--
     -->霜</span><span style="display:inline-block;transform:scale(1)"><!--
