@@ -99,6 +99,10 @@
     }
 
     /* BUTTON */
+    .buttons{
+      display:flex;
+      justify-content:space-evenly;
+    }
     .buttons .button {
       padding:0.6rem 1.2rem;
       background:var(--button-bg);
@@ -129,9 +133,21 @@
       background:var(--bg-accent); border-radius:0.5rem;
       overflow:hidden; box-shadow:0 0 1rem rgba(0,0,0,0.5); text-align:center;
     }
-    .photo-card img { width:100%; display:block; }
+    .photo-card img {
+      width:100%;
+      display:block;
+    }
     .photo-card .subtext {
-      padding:0.5rem; font-size:0.9rem; color:var(--text-secondary);
+      padding:0.5rem;
+      font-size:0.9rem;
+      color:var(--text-secondary);
+    }
+    
+    /*gallery */
+    .gallery{
+      display:flex;
+      justify-content:space-evenly;
+      align-items:stretch;
     }
 
     /* KEYFRAMES */
@@ -180,22 +196,22 @@
           Upload
         </button>
         <button class="button">
-          Toggle W.B
+          WB on/off
         </button>
         <button class="button">
-          540nm
+          540
         </button>
         <button class="button">
-          465nm
+          465
         </button>
         <button class="button">
-          540&465nm
+          G&B
         </button>
         <button class="button">
-          Process/Save
+          Save
         </button>
         <button class="button" onclick="changeImage('DF283363-7955-457F-99C7-25A6DF29D89C.jpeg')">
-          Change to Image 2
+          #
         </button>
       </div>
 
