@@ -58,9 +58,12 @@ animation:morph 5s ease-in-out infinite alternate;
 /* header */
 
 .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; 
   width: 100%;
   height: 5rem;
-  position:relative;
   box-shadow: 0 0 0 1px blue;
   white-space: nowrap;
   overflow: hidden;
@@ -68,7 +71,7 @@ animation:morph 5s ease-in-out infinite alternate;
   line-height: 0.59;
   font-size-adjust: 0.5;
 }
-.left, .right {position:absolute;
+.left, .right {
 }
 .left {font-size:8rem; left:0;
 }
