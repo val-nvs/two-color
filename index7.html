@@ -60,7 +60,9 @@
       transition: background 0.3s;
     }
     .slider.y-mode::-webkit-slider-runnable-track {
-      background: var(--pinkorange);
+      background: var(--rainbow);
+      background-size: 200% 100%;       /* stretch to double width */
+      background-position: 50% 0;       /* start halfway in */
     }
     .slider::-webkit-slider-thumb {
       -webkit-appearance:none; width:1rem; height:2rem;
@@ -181,18 +183,18 @@
       <!-- PHOTO CARDS… -->
       <div class="photo-card">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Toll_of_theSea_rescue-1922.jpg/960px-Toll_of_theSea_rescue-1922.jpg" alt="1922">
-        <p class="subtext">(1922) Anna May Wong «The Toll of the Sea»</p>
-        <div class="han">
+        <p class="subtext">§(1922)   Anna May Wong   «The Toll of the Sea»§</p>
+        <div class="han">§
           <span style="transform:scale(0.6)">（竖排）</span>
           <span style="transform:scaleY(1.8)">霜</span>
           <span style="transform:scale(1)">柳</span>
           <span style="transform:scaleY(1.7)">黄</span>
-          <span>《海逝》</span>
+          <span>《海逝》§</span>
         </div>
       </div>
 
       <div class="photo-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Toll_of_theSea_rescue-1922.jpg/960px-Toll_of_theSea_rescue-1922.jpg" alt="Phantom of the Opera">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Phantomtechnicolor.jpg" alt="Phantom of the Opera">
         <p class="subtext">The Phantom of The Opera, 1925</p>
       </div>
 
