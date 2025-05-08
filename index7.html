@@ -100,11 +100,17 @@
 
     /* BUTTON */
     .buttons .button {
-      padding:0.6rem 1.2rem; background:var(--button-bg);
-      border:none; border-radius:0.3rem; cursor:pointer;
-      transition:background 0.2s;
+      padding:0.6rem 1.2rem;
+      background:var(--button-bg);
+      border:none;
+      border-radius:0.3rem;
+      cursor:pointer;
+      transition:background
+      0.2s;
     }
-    .buttons .button:hover { background:var(--button-hover); }
+    .buttons .button:hover {
+      background:var(--button-hover);
+    }
 
     /* SECOND SLIDER */
     .wbSlider::-webkit-slider-runnable-track {
@@ -170,17 +176,26 @@
 
       <!-- BUTTON -->
       <div class="buttons">
+        <button class="button">
+          Upload
+        </button>
+        <button class="button">
+          Toggle W.B
+        </button>
+        <button class="button">
+          540nm
+        </button>
+        <button class="button">
+          465nm
+        </button>
+        <button class="button">
+          540&465nm
+        </button>
+        <button class="button">
+          Process/Save
+        </button>
         <button class="button" onclick="changeImage('DF283363-7955-457F-99C7-25A6DF29D89C.jpeg')">
           Change to Image 2
-        </button>
-        <button class="button">
-          hi
-        </button>
-        <button class="button">
-          hi
-        </button>
-        <button class="button">
-          hi
         </button>
       </div>
 
