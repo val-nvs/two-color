@@ -1,0 +1,405 @@
+<!DOCTYPE html><html>
+<head><meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Honk:MORF@0..35&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Long+Cang&display=swap" rel="stylesheet">
+
+<title>website</title>
+
+<style>
+
+@keyframes morph {
+  0% { font-variation-settings: "MORF" 10;}
+  100%{font-variation-settings: "MORF" 15;} }
+@keyframes morph0 {
+  0% { font-variation-settings: "MORF" 15;}
+  100%{font-variation-settings: "MORF" 10;} }
+
+@keyframes slide {
+  20% {transform: translateX(0);}
+  40% {transform: translateX(1rem);}
+  60% {transform: translateX(0);}
+  80% {transform: translateX(-1rem);}
+  100% {transform: translateX(0);} }
+
+
+* {
+ margin:0;
+ padding:0;
+}
+
+html, body {
+ width: 100%;
+ height: 100%;
+ background:#222;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; 
+}
+
+.honk{
+  font-family: "Honk", sans-serif;
+}
+
+/* header */
+
+.header {
+  width: 100%;
+  height: 5rem;
+  box-shadow: 0 0 0 1px blue;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "Honk", sans-serif;
+  line-height: 0.59;
+  font-size-adjust: 0.5;
+  background:#000;
+}
+.left, .right {position:absolute;
+}
+.left {font-size:8rem; left:0;
+}
+.right {font-size:5rem; right:0;
+}
+
+.neck{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; 
+  width:90%;
+  height:4rem;
+  background: linear-gradient(0, #555, #000);
+  gap:0.5rem;
+  box-shadow: 0 0 0 2px green;
+  margin-top:7rem;
+}
+
+/* suit */
+
+.suit{
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items: center; 
+width: calc(100vw - var(--scrollbar-width));
+height:100vh;
+}
+
+/*app*/
+
+.app{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; 
+  margin:0 0.5rem;
+  width:90%;
+  gap:0.5rem;
+  background: #222;
+}
+
+/* sliders */
+
+.sliderBox{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  height:3rem;
+  width: 100%;
+  box-shadow: 0 0 0 1px green;
+}
+.slider{
+  position: absolute;
+  
+  width:100%;
+}
+.slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 1rem;
+  background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+    background-size: 100% 100%;
+  border-radius: .5rem;
+}
+.slider::-webkit-slider-thumb {
+  animation:slide 2s ease-in-out forwards;
+  width: 1rem;
+  height: 2rem;
+  background: rgba(255,0,0,0.5);
+  border-radius: 0.5rem;
+  margin-top:-.5rem;
+}
+.sliderTextL, .sliderTextR{
+  position:absolute;
+  font-size:0.5rem;
+  font-family: "Atkinson Hyperlegible Next", sans-serif;
+  line-height: ;
+  position:relative;
+  top:50%;
+  transform:translateY(-50%);
+}
+.sliderTextL{left:0.5rem;
+}
+.sliderTextR{right:0.5rem;
+}
+
+/* image */
+
+#imageBox {
+  width: 100%;
+  aspect-ratio: 3/2;
+  box-shadow: 0 0 0 1px red;
+}
+#imageBox img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* photos */
+
+.photo-card {
+    display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; 
+  width: 95%;
+  box-shadow: 0 0 1rem rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  overflow: hidden;      /* ensures the image doesn't spill over rounded corners */
+  text-align: center;    /* centers subtext */
+  background: #111;      /* optional: background for contrast */
+  color: #fff;           /* optional: text color */
+  margin: 1rem auto;
+  padding:.5rem;
+}
+.photo-card img {
+  width:100%;
+  display: block;
+  border-radius:1rem;
+}
+.photo-card .subtext {
+  padding: 0rem;
+  font-size: 1rem;
+object-fit: contain;
+  font-family: "Atkinson+Hyperlegible+Next", sans-serif;
+}
+.han{
+  font-family: "Long Cang", sans-serif;
+  font-size:2rem;
+  white-space: nowrap;
+    text-align: center;    /* centers subtext */
+  }
+
+
+
+* {color:#fff}
+/*font-family: "Arial", "Verdana", "Helvetica", sans-serif, etc. */
+/*font-size: px, em, rem, %, vh, vw */
+/*font-style: normal, italic, oblique */
+/*font-weight: normal, bold, 100-900 */
+/*font-variant: normal, small-caps */
+/*font-stretch: normal, condensed, expanded, <percentage> */
+/*line-height: normal, <number>, <length>, <percentage> */
+/*letter-spacing: normal, <length> */
+/*word-spacing: normal, <length> */
+/*text-transform: none, capitalize, uppercase, lowercase */
+/*text-decoration: none, underline, overline, line-through */
+/*vertical-align: baseline, sub, super, top, middle, bottom */
+/*text-shadow: <horizontal-offset> <vertical-offset> <blur-radius> <color> */
+/*white-space: normal, nowrap, pre, pre-wrap, pre-line */
+/*overflow: visible, hidden, scroll, auto */
+/*direction: ltr, rtl */
+/*writing-mode: horizontal-tb, vertical-rl, vertical-lr */
+/*word-break: normal, break-word, keep-all */
+/*white-space-collapse: collapse, preserve */
+/*hyphens: none, manual, auto */
+/*font-kerning: auto, normal, none */
+/*font-feature-settings: <name> <value> */
+/*font-size-adjust: none, <number> */
+/*-webkit-font-smoothing: antialiased, subpixel-antialiased */
+/*text-justify: auto, inter-word, inter-character */
+/*color: color name, hex, rgb(), rgba(), hsl(), hsla() */
+/*word-wrap: normal, break-word */
+
+
+/** {font-family: "Atkinson Hyperlegible Next", sans-serif;}*/
+</style></head><body>
+    
+<div class="header">
+ <span id="xLabel" class="left">L</span>
+ <span id="yLabel" class="right">R</span>
+</div>
+
+<div class="neck">
+  <div class="sliderBox">
+    <input id="hueSlider" class="slider pulse-once" type="range" min="0" value="120" max="359">
+    <p class="sliderTextL">0</p> 
+    <p class="sliderTextR">360</p>
+  </div>
+</div>
+
+<div class="suit">
+
+<div class="app">
+
+<div id="imageBox">
+ <img id="dynamicImage" alt="main image" src="DF283363-7955-457F-99C7-25A6DF29D89C.jpeg">
+</div>
+
+<div class="buttons">
+<button class="button" onclick="changeImage('D1E3B2D4-525A-4AA0-A4DD-550AC58A17FD.jpeg')">Change to Image 2</button>
+</div>
+
+<div class="sliderBox">
+ <input id="wbSlider" class="slider pulse-once" type="range" min="-100" value="0" max="100">
+ <p class="sliderTextL">-100%</p> 
+ <p class="sliderTextR">100%</p>
+</div>
+
+
+
+<p>hii</p>
+
+
+
+
+
+
+<div class="han" style="background:#456;
+    margin:5rem 0 0;
+    padding:0;
+    width:100%;
+    height:100%-5rem;">
+    <p>hi</p>
+</div><!--end han-->
+
+
+
+
+<div class="photo-card">
+  <img alt="1922" class="photo" src=https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Toll_of_theSea_rescue-1922.jpg/960px-Toll_of_theSea_rescue-1922.jpg>
+  <p class="subtext">(1922) Anna May Wong «The Toll of the Sea»</p>
+  <p class="han"><span style="display:inline-block;transform:scale(0.6)"><!--
+    -->（竖排）</span><span style="display:inline-block;transform:scaleY(1.8)"><!--
+    -->霜</span><span style="display:inline-block;transform:scale(1)"><!--
+    -->柳</span><span style="display:inline-block;transform:scaleY(1.7)"><!--
+    -->黄</span><span><!--
+   -->《海逝》</span></p>
+</div>
+
+<div class="photo-card">
+  <img alt="1922" class="photo" src=https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Toll_of_theSea_rescue-1922.jpg/960px-Toll_of_theSea_rescue-1922.jpg>
+  <p class="subtext">The Phantom of The Opera, 1925</p>
+</div>
+
+<div class="photo-card">
+  <img alt="1922" class="photo" src=https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Toll_of_theSea_rescue-1922.jpg/960px-Toll_of_theSea_rescue-1922.jpg>
+  <p class="subtext">hi</p>
+</div>
+
+</div><!--end app-->
+</div><!--end suit-->
+<script>
+  // --- ELEMENTS & STATE ---
+  const hueSlider    = document.getElementById('hueSlider');
+  const xLabel       = document.getElementById('xLabel');
+  const yLabel       = document.getElementById('yLabel');
+  let   xValue       = 120;
+  let   yValueShifted= 180;
+  let   controllingY = false;
+
+  // --- UPDATE DISPLAYED LABELS & COLORS ---
+  function updateLabels() {
+    xLabel.textContent = `${xValue}°`;
+    yLabel.textContent = `${yValueShifted - 180}°`;
+
+    // default sizing & coloring
+    xLabel.style.fontSize = '8rem';
+    yLabel.style.fontSize = '5rem';
+    xLabel.style.color    = `hsl(${xValue},100%,50%)`;
+    yLabel.style.color    = `hsl(${yValueShifted - 180},100%,20%)`;
+
+    // if we're in “Y mode,” swap emphasis
+    if (controllingY) {
+      xLabel.style.fontSize = '5rem';
+      yLabel.style.fontSize = '8rem';
+      xLabel.style.color    = `hsl(${xValue},100%,20%)`;
+      yLabel.style.color    = `hsl(${yValueShifted - 180},100%,50%)`;
+    }
+  }
+
+  // --- INPUT DRAG (realtime) ---
+  hueSlider.addEventListener('input', () => {
+    if (controllingY) yValueShifted = +hueSlider.value;
+    else              xValue       = +hueSlider.value;
+    updateLabels();
+  });
+
+  // --- CLICK LABEL TO SWITCH CONTROL ---
+  xLabel.addEventListener('click', () => {
+    controllingY = false;
+    hueSlider.value = xValue;
+    updateLabels();
+  });
+  yLabel.addEventListener('click', () => {
+    controllingY = true;
+    hueSlider.value = yValueShifted;
+    updateLabels();
+  });
+
+  // --- ON “CHANGE” (mouseup / touchend) — pop into final state ---
+  hueSlider.addEventListener('change', () => {
+    if (controllingY) yValueShifted = +hueSlider.value;
+    else              xValue       = +hueSlider.value;
+    animateRelease(currentLabelEl());
+    updateLabels();
+  });
+
+  // --- HELPERS FOR PRESS / RELEASE ANIMATION ---
+  function currentLabelEl() {
+    return controllingY ? yLabel : xLabel;
+  }
+
+  function animatePress(el) {
+    el.style.animation = 'none';           // reset
+    void el.offsetWidth;                   // force reflow
+    el.style.animation = 'morph0 0.3s cubic-bezier(0.9,0,0.1,1) forwards';
+  }
+
+  function animateRelease(el) {
+    el.style.animation = 'none';
+    void el.offsetWidth;
+    el.style.animation = 'morph 0.5s cubic-bezier(0.9,0,0.1,1) forwards';
+  }
+
+  // --- WIRE UP MOUSE & TOUCH EVENTS ON THE SLIDER THUMB ---
+  hueSlider.addEventListener('mousedown', () => {
+    animatePress(currentLabelEl());
+  });
+  hueSlider.addEventListener('touchstart', () => {
+    animatePress(currentLabelEl());
+  }, { passive: true });
+
+  ['mouseup','mouseleave','touchend','touchcancel'].forEach(evt => {
+    hueSlider.addEventListener(evt, () => {
+      animateRelease(currentLabelEl());
+    });
+  });
+
+  // --- IMAGE‐CHANGE BUTTONS ---
+  function changeImage(newSrc) {
+    document.getElementById('dynamicImage').src = newSrc;
+  }
+
+  // --- INITIAL DRAW ---
+  updateLabels();
+</script>
+</body></html>
