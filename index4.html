@@ -12,22 +12,12 @@
 
 <style>
 
-.han{
-  font-family: "Long Cang", sans-serif;
-  font-size:2rem;
-  white-space: nowrap;
-  }
-.honk{
-  font-family: "Honk", sans-serif;
-}
-
 @keyframes morph {
   0% { font-variation-settings: "MORF" 10;}
   100%{font-variation-settings: "MORF" 15;} }
 @keyframes morph0 {
   0% { font-variation-settings: "MORF" 15;}
   100%{font-variation-settings: "MORF" 10;} }
-
 
 @keyframes slide {
   20% {transform: translateX(0);}
@@ -54,7 +44,9 @@ body{
   align-items: center; 
 }
 
-
+.honk{
+  font-family: "Honk", sans-serif;
+}
 
 /* header */
 
@@ -168,8 +160,12 @@ height:100vh;
 /* photos */
 
 .photo-card {
+    display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; 
   width: 95%;
-  box-shadow: 0 0 0 1px orange;
+  box-shadow: 4px 0px 15px rgba(0, 0, 0, 0.5);
   border-radius: 12px;
   overflow: hidden;      /* ensures the image doesn't spill over rounded corners */
   text-align: center;    /* centers subtext */
@@ -181,7 +177,6 @@ height:100vh;
 .photo-card img {
   width:100%;
   display: block;
-  box-shadow: 0 0 0 1px green;
 }
 .photo-card .subtext {
   padding: 0rem;
@@ -189,6 +184,12 @@ height:100vh;
 object-fit: contain;
   font-family: "Atkinson+Hyperlegible+Next", sans-serif;
 }
+.han{
+  font-family: "Long Cang", sans-serif;
+  font-size:2rem;
+  white-space: nowrap;
+    text-align: center;    /* centers subtext */
+  }
 
 
 
