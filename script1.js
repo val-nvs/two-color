@@ -49,3 +49,74 @@ window.addEventListener('DOMContentLoaded', () => {
     const oL = normalize255(hsv2rgb(hL, 1, 1));
     const oM = normalize255(hsv2rgb(hM, 1, 1));
     // leftover for S
+    // leftover for S
+    const rawS = {
+      r: Math.max(0, 255 - oL.r - oM.r),
+      g: Math.max(0, 255 - oL.g - oM.g),
+      b: Math.max(0, 255 - oL.b - oM.b)
+    };
+    const oS = normalize255(rawS);
+
+    return { oL, oM, oS };
+  }
+
+  // Main image processing
+  function processImage() {
+    if (!lastImg) return;
+
+    // size canvas to image
+    canvas.width  = lastImg.width;
+    canvas.height = lastImg.height;
+    ctx.drawImage(lastImg, 0, 0);
+
+    const { oL, oM, oS } = computeOverlays();
+    const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const d = imgData.data;
+
+    for (let i = 0; i < d.length; i += 4) {
+      const R = d[i], G = d[i+1];
+      const L = R, M = G, S = (L + M) / 2;
+
+      // tint helper
+      const tint = (val, o) => ({
+        r: o.r * (val / 255),
+        g: o.g * (val / 255),
+        b: o.b * (val / 255)
+      });
+
+      const tL = tint(L, oL);
+      const tM = tint(M, oM);
+      const tS = tint(S, oS);
+
+      let r = tL.r + tM.r + tS.r;
+      let g = tL.g + tM.g + tS.g;
+      let b = tL.b + tM.b + tS.b;
+
+      d[i]   = r > 255 ? 255 : r;
+      d[i+1] = g > 255 ? 255 : g;
+      d[i+2] = b > 255 ? 255 : b;
+      d[i+3] = 255;
+    }
+
+    ctx.putImageData(imgData, 0, 0);
+  }
+
+  // File picker
+  fileInput.addEventListener('change', () => {
+    const file = fileInput.files[0];
+    if (!file) return;
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      lastImg = img;
+      URL.revokeObjectURL(url);
+      processImage();
+    };
+    img.src = url;
+  });
+
+  // Re-process on slider changes
+  hueLInput.addEventListener('input',  processImage);
+  hueMInput.addEventListener('input',  processImage);
+});
+
