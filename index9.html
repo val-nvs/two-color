@@ -62,8 +62,20 @@
 
 #pageBox {
   display:flex;
-  column;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; 
   background: #222;
+}
+
+#buttonBox {
+  display:flex;
+  flex-direction: row;
+}
+
+.splitView {
+  display:flex;
+  flex-direction: row;
 }
 
 </style></head><body>
@@ -73,8 +85,8 @@
     a<span>b</span>
   </div>
   <div class="sliderBox">
-    <input id="xSlider" range=500 min=0 max=360>
-    <input id="ySlider" range=500 min=0 max=360>
+    <input id="xSlider" type="range" min="0" value="120" max="359">
+    <input id="ySlider" type="range" min="0" value="0" max="359">
   </div>
   <div id="imageBox">
     <img id="img" src="www">
