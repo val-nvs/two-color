@@ -8,22 +8,7 @@
 </head>
 
 <body>
-<div style="position:relative; width:100%; height:0px; background:#ccc;">
-  <canvas id="c" style="position:absolute; top:0; right:0; width:64px;"></canvas>
-  <script>
-    let i = new Image(); i.crossOrigin = "anonymous";
-    i.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Linear_RGB_color_wheel.png/250px-Linear_RGB_color_wheel.png"; // use your image URL
-    i.onload = () => {
-      let c = document.getElementById("c"), x = c.getContext("2d");
-      c.width = i.width; c.height = i.height;
-      x.drawImage(i, 0, 0);
-      let d = x.getImageData(0, 0, c.width, c.height), p = d.data;
-      for (let j = 0; j < p.length; j += 4)
-        if (p[j] > 240 && p[j+1] > 240 && p[j+2] > 240) p[j+3] = 0;
-      x.putImageData(d, 0, 0);
-    };
-  </script>
-</div>
+
 
 <div id="hehe">
 <label>
