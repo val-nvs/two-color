@@ -112,7 +112,7 @@ body {background: #000;}
   object-fit: cover;
   display: block;
   width:100%;
-  margin: 0.5rem;
+  padding: 0.5rem;
 }
 
 
@@ -157,6 +157,7 @@ input[type="range"] {
   width: 100%;                 /* Default width */
   height: 20px;                /* Default height */
   background: transparent;            /* Default background color */
+  position: relative;
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -166,6 +167,9 @@ input[type="range"]::-webkit-slider-thumb {
   background: #770;            /* Default thumb color */
   border-radius: 30%;
   cursor: pointer;            /* Default pointer cursor */
+  position: absolute;     /* Use absolute positioning */
+  top: 50%;               /* Position thumb vertically at 50% of track height */
+  transform: translateY(-50%);  /* This moves the thumb up by 50% of its height, centering it */
 }
 input[type="range"]:active::-webkit-slider-thumb {
   background: #00f;  /* Darker color when active (dragging) */
