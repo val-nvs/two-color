@@ -68,7 +68,14 @@
   background: #222;
 }
 
+
+
 #buttonBox {
+  display:flex;
+  flex-direction: row;
+}
+
+#buttonGroup {
   display:flex;
   flex-direction: row;
 }
@@ -86,23 +93,25 @@
   </div>
   <div class="sliderBox">
     <input id="xSlider" type="range" min="0" value="120" max="359">
+  </div>
+  <div class="sliderBox">
     <input id="ySlider" type="range" min="0" value="0" max="359">
   </div>
   <div id="imageBox">
     <img id="img" src="www">
   </div>
   <div id="buttonBox">
-    <div class="button">Upload</div>
-    <div class="button">WB</div>
+    <button class="button">Upload</div>
+    <button class="button">WB</div>
     <div id="buttonGroup">
-      <div class="button">G</div>
-      <div class="button">B</div>
-      <div class="button">G+B</div>
+      <button class="button">G</div>
+      <button class="button">B</div>
+      <button class="button">G+B</div>
     </div>
-    <div class="button">Save</div>
+    <button class="button">Save</div>
   </div>
   <div class="sliderBox">
-    <input id="wbSlider" range=500 min=0 max=360>
+    <input id="wbSlider" type="range" min="-100" value="0" max="100">
   </div>
   <div class="splitView">
     <div class="photoFrame">
