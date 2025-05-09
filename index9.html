@@ -66,35 +66,40 @@ body {background: #000;}
   display:flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center; 
+  align-items: center;
   background: #222;
+  padding: 0.5rem;
+}
+
+.header {
+  display:flex;
+  justify-content: space-between;
 }
 
 .sliderBox {
-  width:100%;
+  width: 100%;
 }
 
 .sliderBox input {
-  width:100%;
+  width: 100%;
 }
 
 #imageBox img {
   object-fit: cover; /* or contain */
   display: block;
-  width:100%;
+  width: 100%;
 }
-  
 
 #buttonBox {
   display:flex;
   justify-content: space-evenly;
-  width:100%;
+  width: 100%;
 }
 
 #buttonGroup {
   display:flex;
   justify-content: space-between;
-  gap:1rem;
+  gap: 0.5rem;
 }
 
 .splitView {
@@ -112,7 +117,7 @@ body {background: #000;}
 
 <div id="pageBox">
   <div class="header">
-    a<span>b</span>
+    <p>a</p><span><p>b</p></span>
   </div>
   <div class="sliderBox">
     <input id="xSlider" type="range" min="0" value="120" max="359">
