@@ -101,6 +101,22 @@ body {background: #000;}
   gap: 0.5rem;
 }
 
+
+
+.splitView {
+  display:flex;
+  justify-content: space-evenly;
+}
+
+.photoFrame img {
+  object-fit: cover;
+  display: block;
+  width:100%;
+  margin: 0.5rem;
+}
+
+
+
 button {
   appearance: none;
   -webkit-appearance: none;
@@ -134,17 +150,34 @@ button:focus {
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Focus outline */
 }
 
-.splitView {
-  display:flex;
-  justify-content: space-evenly;
+input[type="range"] {
+  appearance: none;            /* Standard reset */
+  -webkit-appearance: none;    /* Remove default WebKit (Safari, Chrome) styles */
+  -moz-appearance: none;       /* Remove default Firefox styles */
+  width: 100%;                 /* Default width */
+  height: 20px;                /* Default height */
+  background: transparent;            /* Default background color */
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2rem;
+  height: 1.5rem;
+  background: #770;            /* Default thumb color */
+  border-radius: 30%;
+  cursor: pointer;            /* Default pointer cursor */
+}
+input[type="range"]:active::-webkit-slider-thumb {
+  background: #00f;  /* Darker color when active (dragging) */
+}
+input[type="range"]:hover::-webkit-slider-thumb {
+  background: #0f0;  /* Slightly lighter when hovered */
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 10px;
+  background: #700; /* Lighter gray for the track */
 }
 
-.photoFrame img {
-  object-fit: cover;
-  display: block;
-  width:100%;
-  margin: 0.5rem;
-}
 
 </style></head><body>
 
