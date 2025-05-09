@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Three-Tone Hue Filter</title>
+  <style>
+    /* Page background set in CSS */
+    body {
+      margin: 0;
+      height: 100vh;
+      background: 
+        url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Linear_RGB_color_wheel.png/250px-Linear_RGB_color_wheel.png") 
+        center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 1rem;
+      font-family: sans-serif;
+    }
+    /* Centered sliders */
+    #hueControls {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    #hueControls input { width: 140px; }
+    /* Canvas */
+    canvas {
+      border: 1px solid #666;
+      max-width: 90vw;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="hueControls">
+    <input id="hueL" type="range" min="0" max="360" value="0">
+    <input id="hueM" type="range" min="0" max="360" value="120">
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+  <script>
+  (function() {
+    const hueL = document.getElementById('hueL');
+    const hueM = document.getElementById('hueM');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Sample image URL
+    const imgURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Linear_RGB_color_wheel.png/250px-Linear_RGB_color_wheel.png";
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.src = imgURL;
+
+    // HSV→RGB + normalize (unchanged)
+    function hsv2rgb(h,s,v){ 
+      h=((h%360)+360)%360;
+      const c=v*s, hp=h/60, x=c*(1-Math.abs((hp%2)-1));
+      let [r1,g1,b1]=[0,0,0];
+      if(hp<1) [r1,g1,b1]=[c,x,0];
+      else if(hp<2)[r1,g1,b1]=[x,c,0];
+      else if(hp<3)[r1,g1,b1]=[0,c,x];
+      else if(hp<4)[r1,g1,b1]=[0,x,c];
+      else if(hp<5)[r1,g1,b1]=[x,0,c];
+      else [r1,g1,b1]=[c,0,x];
+      const m=v-c;
+      return {r:(r1+m)*255, g:(g1+m)*255, b:(b1+m)*255};
+    }
+    function normalize255(o){
+      const sum=o.r+o.g+o.b;
+      if(!sum) return {r:0,g:0,b:0};
+      const f=255/sum;
+      return {r:o.r*f, g:o.g*f, b:o.b*f};
+    }
+
+    // compute oL, oM, oS
+    function computeOverlays(){
+      const hL=+hueL.value, hM=+hueM.value;
+      const oL=normalize255(hsv2rgb(hL,1,1));
+      const oM=normalize255(hsv2rgb(hM,1,1));
+      const rawS={r:255-oL.r-oM.r, g:255-oL.g-oM.g, b:255-oL.b-oM.b};
+      const oS=normalize255(rawS);
+      return {oL,oM,oS};
+    }
+
+    // once image loads, size canvas and draw
+    img.onload = () => {
+      canvas.width  = img.width;
+      canvas.height = img.height;
+      render();
+      hueL.addEventListener('input', render);
+      hueM.addEventListener('input', render);
+    };
+
+    function render(){
+      // draw base
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.drawImage(img,0,0);
+
+      // get and modify the very same ImageData
+      const imgData = ctx.getImageData(0,0,canvas.width,canvas.height);
+      const d = imgData.data;
+      const {oL,oM,oS} = computeOverlays();
+
+      for(let i=0; i<d.length; i+=4){
+        const L=d[i], M=d[i+1], S=(L+M)/2;
+        const tint=(v,o)=>({r:o.r*(v/255),g:o.g*(v/255),b:o.b*(v/255)});
+        const tL=tint(L,oL), tM=tint(M,oM), tS=tint(S,oS);
+        let r=tL.r+tM.r+tS.r, g=tL.g+tM.g+tS.g, b=tL.b+tM.b+tS.b;
+        d[i]   = r>255?255:r;
+        d[i+1] = g>255?255:g;
+        d[i+2] = b>255?255:b;
+        // leave alpha = 255
+      }
+
+      // put **the same** ImageData back
+      ctx.putImageData(imgData, 0, 0);
+    }
+  })();
+  </script>
+
+</body>
+</html>
