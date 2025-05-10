@@ -93,14 +93,12 @@ body {
 
 .sliderBox {
   width: 100%;
-  background: #f0f;
-
+  background: transparent;
 }
 
 .sliderBox input {
   width: 100%;
-    padding: 0;
-  margin:0;
+  margin: 0; /*important */
 }
 
 #protoanSlider::-webkit-slider-runnable-track {
@@ -214,8 +212,8 @@ input[type="range"] {
   -webkit-appearance: none;    /* Remove default WebKit (Safari, Chrome) styles */
   -moz-appearance: none;       /* Remove default Firefox styles */
   width: inherit;                 /* Default width */
-  height: 0.5rem;                /* Default height */
-  background: #000;            /* Default background color */
+  height: 0.8rem;                /* Default height */
+  background: #333;            /* Default background color */
   position: relative;
 }
 input[type="range"]::-webkit-slider-thumb {
@@ -225,7 +223,7 @@ input[type="range"]::-webkit-slider-thumb {
   width: 2rem;
   height: 1.5rem;
   background: #222;            /* Default thumb color */
-  border-radius: 30%;
+  border-radius: 0.2rem;
   cursor: pointer;            /* Default pointer cursor */
   position: relative;     /* Use absolute positioning */
   top: 50%;               /* Position thumb vertically at 50% of track height */
@@ -241,6 +239,7 @@ input[type="range"]:hover::-webkit-slider-thumb {
 input[type="range"]::-webkit-slider-runnable-track {
   background-size: 300% 100%;
   height: 0.2rem;
+  box-shadow: 0 0 0.15rem #fff;
 }
 
 
