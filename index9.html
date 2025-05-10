@@ -84,10 +84,10 @@ body {background: #000;}
   width: 100%;
 }
 
-#xSlider::-webkit-slider-runnable-track {
+#protoanSlider::-webkit-slider-runnable-track {
   background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
 }
-#ySlider::-webkit-slider-runnable-track {
+#longConeSlider::-webkit-slider-runnable-track {
   background: linear-gradient(to right, #0ff, #00f, #f0f, #f00, #ff0, #0f0, #0ff);
 }
 #wbSlider::-webkit-slider-runnable-track {
@@ -201,10 +201,10 @@ input[type="range"]::-webkit-slider-runnable-track {
     <p>b</p>
   </div>
   <div class="sliderBox">
-    <input id="xSlider" type="range" min="0" value="120" max="360">
+    <input id="longConeSlider" type="range" min="-180" value="0" max="180">
   </div>
   <div class="sliderBox">
-    <input id="ySlider" type="range" min="-180" value="0" max="180">
+    <input id="protoanSlider" type="range" min="0" value="120" max="360">
   </div>
   <div id="imageBox">
     <img id="mainImg" alt="Main Image" src="268D6124-F132-439F-8435-2221421CCA87.jpeg">
@@ -230,6 +230,24 @@ input[type="range"]::-webkit-slider-runnable-track {
     <div class="photoFrame">
       <img id="" alt="" src="268D6124-F132-439F-8435-2221421CCA87.jpeg">
       <p>p</p>
+    </div>
+  </div>
+  <div class="splitView">
+    <div class="photoFrame">
+      <img id="" alt="" src="268D6124-F132-439F-8435-2221421CCA87.jpeg">
+      <p>Red</p>
+    </div>
+    <div class="photoFrame">
+      <img id="" alt="" src="268D6124-F132-439F-8435-2221421CCA87.jpeg">
+      <p>Green</p>
+    </div>
+    <div class="photoFrame">
+      <img id="" alt="" src="268D6124-F132-439F-8435-2221421CCA87.jpeg">
+      <p>Blue</p>
+    </div>
+    <div class="photoFrame">
+      <img id="" alt="" src="268D6124-F132-439F-8435-2221421CCA87.jpeg">
+      <p>Green+Blue</p>
     </div>
   </div>
   <div class="photoFrame">
