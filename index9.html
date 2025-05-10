@@ -116,6 +116,7 @@ body {
   object-fit: cover; /* or contain */
   display: block;
   width: 100%;
+    box-shadow: 0 0 0.5rem #888;
 }
 
 #buttonBox {
@@ -187,13 +188,13 @@ button {
   cursor: pointer; /*pointer*/
   font-size: inherit;
   font-weight: inherit;
-  background-color: #222; /* Primary button color */
+  background-color: rgba(55,55,55,0.5); /* Primary button color */
   border-radius: 0.2rem;
   transition: all 0.1s ease;
   box-shadow: 0 0 0.15rem #fff;
 }
 button:hover {
-  background-color: color(55,55,55,180); /* on hover */
+  background-color: transparent; /* on hover */
   transform: translateY(0.1rem); /* Slight lift effect */
 }
 button:active {
@@ -213,7 +214,7 @@ input[type="range"] {
   -moz-appearance: none;       /* Remove default Firefox styles */
   width: inherit;                 /* Default width */
   height: 0.8rem;                /* Default height */
-  background: #333;            /* Default background color */
+  background: transparent;            /* Default background color */
   position: relative;
 }
 input[type="range"]::-webkit-slider-thumb {
