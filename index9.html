@@ -166,7 +166,7 @@ input[type="range"] {
   -moz-appearance: none;       /* Remove default Firefox styles */
   width: inherit;                 /* Default width */
   height: 0.5rem;                /* Default height */
-  background: #00;            /* Default background color */
+  background: #000;            /* Default background color */
   position: relative;
 }
 input[type="range"]::-webkit-slider-thumb {
@@ -201,10 +201,10 @@ input[type="range"]::-webkit-slider-runnable-track {
     <p>b</p>
   </div>
   <div class="sliderBox">
-    <input id="xSlider" type="range" min="0" value="120" max="359">
+    <input id="xSlider" type="range" min="0" value="120" max="360">
   </div>
   <div class="sliderBox">
-    <input id="ySlider" type="range" min="0" value="0" max="359">
+    <input id="ySlider" type="range" min="-180" value="0" max="180">
   </div>
   <div id="imageBox">
     <img id="mainImg" alt="Main Image" src="268D6124-F132-439F-8435-2221421CCA87.jpeg">
