@@ -65,9 +65,9 @@
 
 
 * {
-  color:#ddd;
-  text-shadow: 0 0 4px #0ff;
+  color:#eee;
   text-shadow: 0 0 2px #000;
+  text-size: 0.8;
 }
 p {margin: 0.3rem auto;}
   
@@ -93,6 +93,7 @@ body {
 
 .sliderBox {
   width: 100%;
+  background: #f0f;
 }
 
 .sliderBox input {
@@ -101,7 +102,7 @@ body {
 
 #protoanSlider::-webkit-slider-runnable-track {
   background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
-  animation: gradientShift 15s ease;
+  animation: gradientShift 5s ease;
 }
 #longConeSlider::-webkit-slider-runnable-track {
   background: linear-gradient(to right, #0ff, #00f, #f0f, #f00, #ff0, #0f0, #0ff);
@@ -137,7 +138,7 @@ body {
   padding: 0rem;
   border-radius: 0.25rem;
   background: #181818;
-  box-shadow: 0 0 0.1rem #0ff;
+  box-shadow: 0 0 0.15rem #fff;
 }
 .photoFrame img {
   object-fit: cover;
@@ -188,10 +189,11 @@ button {
   background-color: #222; /* Primary button color */
   border-radius: 0.2rem;
   transition: all 0.1s ease;
+  box-shadow: 0 0 0.15rem #fff;
 }
 button:hover {
-  background-color: #666; /* on hover */
-  transform: translateY(-0.5rem); /* Slight lift effect */
+  background-color: #555; /* on hover */
+  transform: translateY(0.1rem); /* Slight lift effect */
 }
 button:active {
   background-color: #0f0; /* on click */
@@ -219,18 +221,19 @@ input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   width: 2rem;
   height: 1.5rem;
-  background: #777;            /* Default thumb color */
+  background: #222;            /* Default thumb color */
   border-radius: 30%;
   cursor: pointer;            /* Default pointer cursor */
   position: relative;     /* Use absolute positioning */
   top: 50%;               /* Position thumb vertically at 50% of track height */
   transform: translateY(-50%);  /* This moves the thumb up by 50% of its height, centering it */
+  box-shadow: 0 0 0.15rem #fff;
 }
 input[type="range"]:active::-webkit-slider-thumb {
   background: #00f;  /* Darker color when active (dragging) */
 }
 input[type="range"]:hover::-webkit-slider-thumb {
-  background: #bbb;  /* Slightly lighter when hovered */
+  background: #555;  /* Slightly lighter when hovered */
 }
 input[type="range"]::-webkit-slider-runnable-track {
   background-size: 300% 100%;
@@ -255,14 +258,15 @@ input[type="range"]::-webkit-slider-runnable-track {
     <img id="mainImg" alt="Main Image" src="268D6124-F132-439F-8435-2221421CCA87.jpeg">
   </div>
   <div id="buttonBox">
-    <button class="button">Upload</button>
+    <button id="btnUpload" class="button">Upload</button>
     <button id="btnWB" class="button">WB</button>
     <div id="buttonGroup">
-      <button class="button">G</button>
-      <button class="button">B</button>
-      <button class="button">G+B</button>
+      <button id="btnG" class="button">G</button>
+      <button id="btnB" class="button">B</button>
+      <button id="btnGB" class="button">G+B</button>
     </div>
-    <button class="button">Save</button>
+    <button id="btnSave" class="button">Save</button>
+    <button id="btnInfo" class="button">Info</button>
   </div>
   <div class="sliderBox">
     <input id="wbSlider" type="range" min="-100" value="0" max="100">
