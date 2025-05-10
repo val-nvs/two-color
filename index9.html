@@ -312,6 +312,7 @@ input[type="range"]::-webkit-slider-runnable-track {
     <p>Bride of the Regiment, 1930</p>
     <p>Myrna Loy and Walter Pidgeon</p>
   </div>
+  <button id="btnDebug" class="button">debug</button>
 </div>
 
 </body>
@@ -330,17 +331,30 @@ let btnWB = false;
     }
   });
 
-  function getRandomColor() {
-    return '#' + Math.floor(Math.random() * 16777215).toString(16);
-  }
 
-  function applyRandomBoxShadows() {
-    const allElements = document.querySelectorAll('*');
-    allElements.forEach(el => {
-      const color = getRandomColor();
-      el.style.boxShadow = `0 0 0 1px ${color}`;
-    });
-  }
+let btnDebug = false;
+  document.getElementById("btnDebug").addEventListener("click", function() {
+    btnDebug = !btnDebug;
+    console.log(btnDebug ? "Button is ON" : "Button is OFF");
+    if (btnDebug) {
+      function getRandomColor() {
+        return '#' + Math.floor(Math.random() * 16777215).toString(16);
+      }
+      function applyRandomBoxShadows() {
+        const allElements = document.querySelectorAll('*');
+        allElements.forEach(el => {
+          const color = getRandomColor();
+          el.style.boxShadow = `0 0 0 1px ${color}`;
+      });
+      }
+    } else {
+      el.style.boxShadow = `0 0 0 0px transparent`;
+    }
+  });
+
+//
+
+  
 
   applyRandomBoxShadows(); // Apply on page load
 </script>
