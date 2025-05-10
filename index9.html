@@ -26,7 +26,13 @@
   60% {transform: translateX(0);}
   80% {transform: translateX(-1rem);}
   100% {transform: translateX(0);} }
-
+  
+  @keyframes gradientShift {
+    0%   { background-position: 0% 50%;}
+    25%  { background-position: 50% 100%;}
+    50%  { background-position: 100% 50%;}
+    75%  { background-position: 50% 0%;}
+    100% { background-position: 0% 50%;} }
 
 /*font-family: "Arial", "Verdana", "Helvetica", sans-serif, etc. */
 /*font-size: px, em, rem, %, vh, vw */
@@ -91,6 +97,7 @@ body {
 
 #protoanSlider::-webkit-slider-runnable-track {
   background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+  animation: gradientShift 15s ease
 }
 #longConeSlider::-webkit-slider-runnable-track {
   background: linear-gradient(to right, #0ff, #00f, #f0f, #f00, #ff0, #0f0, #0ff);
