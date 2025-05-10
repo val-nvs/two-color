@@ -13,6 +13,37 @@
 
 <style>
 
+/*bezier*/
+/* 1) Make sure your layout container is position: relative; */
+/*    (you already have `body` and `#pageBox` as relative/flow, so this is probably fine) */
+/* 2) Full-page SVG overlay: */
+#bezier-svg {
+  position: absolute;   /* take out of the flow */
+  top:    0;
+  left:   0;
+  width:  100%;
+  height: 100%;
+  pointer-events: none; /* let clicks “through” to your inputs */
+  overflow: visible;
+  z-index: 999;         /* on top of everything */
+}
+/* 3) Your Bézier <path> styling: */
+#bezier-path {
+  stroke:       red;
+  stroke-width: 2;
+  fill:         none;
+}
+#bezier-endpoint {
+  /* you already have p { margin… } so just ensure this ID is on the <p> */
+  position: absolute;   /* you probably already have this in your layout */
+  /* top/left as needed */
+}
+#protoanSlider {
+  /* you already have input[type="range"]… */
+  position: absolute;   /* so JS can calculate its getBoundingClientRect() */
+  /* width, top/left as you already set in .sliderBox */
+}
+
 @keyframes morph {
   0% { font-variation-settings: "MORF" 10;}
   100%{font-variation-settings: "MORF" 15;} }
@@ -249,7 +280,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 
 <div id="pageBox">
   <div class="header">
-    <p>a</p>
+    <p id="bezier-endpoint">a</p>
     <p>b</p>
   </div>
   <div class="sliderBox">
@@ -383,6 +414,64 @@ let btnDebug = false;
   
 
   applyRandomBoxShadows(); // Apply on page load
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+      const endpoint = document.getElementById('bezier-endpoint');
+      const slider   = document.getElementById('protoanSlider');
+      const svg      = document.getElementById('bezier-svg');
+      const path     = document.getElementById('bezier-path');
+      function updateBezier() {
+        const eRect = endpoint.getBoundingClientRect();
+        const sRect = slider.getBoundingClientRect();
+        const t = (slider.value - slider.min) / (slider.max - slider.min);
+        // calculate points
+        const thumbX = sRect.left + t * sRect.width;
+        const thumbY = sRect.top  + sRect.height / 2;
+        const endX   = eRect.right;
+        const endY   = eRect.top   + eRect.height / 2;
+        // control points (adjust curve)
+        const conPt1x = thumbX;
+        const conPt1y = thumbY - 80;
+        const conPt2x = endX;
+        const conPt2y = endY    - 80;
+        //
+        const d = `
+          M ${thumbX},${thumbY}
+          C ${conPt1x},${conPt1y}
+            ${conPt2x},${conPt2y}
+            ${endX},${endY}
+        `;
+        path.setAttribute('d', d);
+      }
+      slider.addEventListener('input',  updateBezier);
+      window.addEventListener('resize', updateBezier);
+      updateBezier();
+    });
+
+
+
+
+
+
+
+
 </script>
 
 </html>
