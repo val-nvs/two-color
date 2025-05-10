@@ -170,7 +170,7 @@ button {
   cursor: pointer; /*pointer*/
   font-size: inherit;
   font-weight: bold;
-  background-color: #333; /* Primary button color */
+  background-color: #777; /* Primary button color */
   border-radius: 0.2rem;
   transition: all 0.3s ease;
 }
@@ -301,7 +301,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   <div class="photoFrame">
     <img id="" alt="" src="B07215AE-6C65-48D1-BE46-5BFD81D0C601.jpeg">
     <p>The Toll of the Sea, 1922</p>
-    <p>Anna May Wong <span class="tiny">（竖排）</span><span class="hanBig">霜</span><span class="hanHalf">柳</span><span class="hanBig">黄</span><br><span style="padding-right: 5ch">and Kenneth Harlan</span></p>
+    <p>Anna May Wong <span class="tiny">（竖排）</span><span class="hanBig">霜</span><span class="hanHalf">柳</span><span class="hanBig">黄</span><br><span style="padding-right: 8ch">and Kenneth Harlan</span></p>
   </div>
   <div class="photoFrame">
     <img id="" alt="" src="99E75FE1-7E71-41D5-AB2B-FE2E9FF1DE20.jpeg">
@@ -323,12 +323,11 @@ let btnWB = false;
   document.getElementById("btnWB").addEventListener("click", function() {
     btnWB = !btnWB;
     console.log(btnWB ? "Button is ON" : "Button is OFF");
-  });
-
-
-document.getElementById("btnWB").addEventListener("click", function() {
-    this.style.backgroundColor = "blue";
-    this.style.color = "white";
+    if (btnWB) {
+      this.style.backgroundColor = "blue";
+    } else {
+      this.style.backgroundColor = "";
+    }
   });
 
   function getRandomColor() {
