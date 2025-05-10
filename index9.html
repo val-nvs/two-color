@@ -72,7 +72,7 @@ body {
   justify-content: flex-start;
   align-items: center;
   gap: 0.5rem;
-  background: #222;
+  background: transparent;
 }
 
 .header {
@@ -170,12 +170,12 @@ button {
   cursor: pointer; /*pointer*/
   font-size: inherit;
   font-weight: bold;
-  background-color: #777; /* Primary button color */
+  background-color: #555; /* Primary button color */
   border-radius: 0.2rem;
   transition: all 0.3s ease;
 }
 button:hover {
-  background-color: #f00; /* on hover */
+  background-color: #666; /* on hover */
   transform: translateY(-0.5rem); /* Slight lift effect */
 }
 button:active {
@@ -184,7 +184,7 @@ button:active {
 }
 button:focus {
   outline: none;
-  background-color: #0f0; 
+  background-color: #0ff; 
   transform: translateX(0.2rem); /*  */
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Focus outline */
 }
@@ -203,7 +203,7 @@ input[type="range"]::-webkit-slider-thumb {
   appearance: none;
   width: 2rem;
   height: 1.5rem;
-  background: #444;            /* Default thumb color */
+  background: #777;            /* Default thumb color */
   border-radius: 30%;
   cursor: pointer;            /* Default pointer cursor */
   position: relative;     /* Use absolute positioning */
@@ -325,7 +325,7 @@ let btnWB = false;
     btnWB = !btnWB;
     console.log(btnWB ? "Button is ON" : "Button is OFF");
     if (btnWB) {
-      this.style.backgroundColor = "blue";
+      this.style.backgroundColor = "#fff";
     } else {
       this.style.backgroundColor = "";
     }
@@ -337,6 +337,7 @@ let btnDebug = false;
     btnDebug = !btnDebug;
     console.log(btnDebug ? "Button is ON" : "Button is OFF");
     if (btnDebug) {
+      this.style.backgroundColor = "#fff";
       function getRandomColor() {
         return '#' + Math.floor(Math.random() * 16777215).toString(16);
       }
@@ -348,6 +349,7 @@ let btnDebug = false;
       });
       }
     } else {
+      this.style.backgroundColor = "";
       el.style.boxShadow = `0 0 0 0px transparent`;
     }
   });
