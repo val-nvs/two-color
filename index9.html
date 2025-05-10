@@ -85,9 +85,11 @@ body {background: #000;}
 }
 
 #xSlider {
-  background: gradient(rainbow);
+  background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
 }
-
+#ySlider {
+  background: linear-gradient(to right, #0ff, #00f, #f0f, #f00, #ff0, #0f0, #0ff);
+}
 #wbSlider {
   background: linear-gradient(to right, #03d, #fff, #f10);
 }
@@ -186,7 +188,7 @@ input[type="range"]:hover::-webkit-slider-thumb {
   background: #0f0;  /* Slightly lighter when hovered */
 }
 input[type="range"]::-webkit-slider-runnable-track {
-  height: 10px;
+  height: 0.1rem;
   background: transparent; /* Lighter gray for the track */
 }
 
