@@ -436,25 +436,25 @@ let btnDebug = false;
     }
 
     // Slider #1
-    const slider1 = document.getElementById('slider1');
+    const protoanSlider = document.getElementById('protoanSlider');
     const display1 = document.getElementById('display1');
-    slider1.addEventListener('input', () => {
-      const hue = slider1.value;
+    protoanSlider.addEventListener('input', () => {
+      const hue = protoanSlider.value;
       const col = hueToRgb(hue);
       display1.style.backgroundColor = col;
       display1.textContent = `Hue 1: ${hue}°`;
     });
-    slider1.dispatchEvent(new Event('input')); // initialize
+    protoanSlider.dispatchEvent(new Event('input')); // initialize
     // Slider #2
-    const slider2 = document.getElementById('slider2');
+    const longConeSlider = document.getElementById('longConeSlider');
     const display2 = document.getElementById('display2');
-    slider2.addEventListener('input', () => {
-      const hue = slider2.value;
+    longConeSlider.addEventListener('input', () => {
+      const hue = longConeSlider.value;
       const col = hueToRgb(hue);
       display2.style.backgroundColor = col;
       display2.textContent = `Hue 2: ${hue}°`;
     });
-    slider2.dispatchEvent(new Event('input')); // initialize
+    longConeSlider.dispatchEvent(new Event('input')); // initialize
 
 
 
