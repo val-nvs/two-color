@@ -186,7 +186,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 </body>
 <script>
 
-let btnWB = true;
+let btnWB = false;
   document.getElementById("btnWB").addEventListener("click", function() {
     btnWB = !btnWB;
     console.log(btnWB ? "Button is ON" : "Button is OFF");
@@ -194,8 +194,8 @@ let btnWB = true;
       this.style.backgroundColor = "#d4d4d4";
       this.style.color = "#000";
     } else {
-      this.style.backgroundColor = "";
-      this.style.color = "#000";
+      this.style.backgroundColor = "464646";
+      this.style.color = "#fff";
     }
   });
 
