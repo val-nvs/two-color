@@ -387,9 +387,9 @@ let btnDebug = false;
     btnDebug = !btnDebug;
     console.log(btnDebug ? "Button is ON" : "Button is OFF");
     if (btnDebug) {
-      //
+      this.style.backgroundColor = "#fff";
     } else {
-      //this.style.backgroundColor = "";
+      this.style.backgroundColor = "";
       //el.style.boxShadow = `0 0 0 0px transparent`;
     }
   });
@@ -400,7 +400,7 @@ let btnDebug = false;
 
 
 
-      this.style.backgroundColor = "#fff";
+
       function getRandomColor() {
         return '#' + Math.floor(Math.random() * 16777215).toString(16);
       }
