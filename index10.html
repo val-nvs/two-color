@@ -23,11 +23,61 @@ body img{
   width: 100%;
 }
 
-.button{
+
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0rem; /*0*/
+  padding: 0rem 0rem; /*0*/
+  border: none; /*none*/
+  background: none; /*none*/
+  font: inherit; /*inherit*/
+  color: inherit; /*inherit*/
+  line-height: inherit; /*inherit*/
+  cursor: pointer; /*pointer*/
+  font-size: inherit;
+  font-weight: inherit;
+  background-color: #464646; /* Primary button color */
+  border-radius: 0.2rem; }
+button:hover {
+  background-color: transparent; /* on hover */
+  transform: translateY(0.1rem); /* Slight lift effect */}
+button:active {
+  background-color: #0f0; /* on click */
+  transform: translateY(0); /* Button goes back to normal position */}
+button:focus {
+  outline: none;
+  background-color: #0ff; 
+  transform: translateY(0.2rem); /*  */
+}
+
+input[type="range"] {
+  appearance: none;            /* */
+  -webkit-appearance: none;    /* */}
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 2rem;
+  height: 1.5rem;
+  background: #6a6a6a;
+  border-radius: 0.2rem;
+  cursor: pointer;   
+  position: relative;     /* Use absolute positioning */}
+input[type="range"]:active::-webkit-slider-thumb {
+  background: #0f0;  /* */}
+input[type="range"]:hover::-webkit-slider-thumb {
+  background: #f0f;  /* */}
+input[type="range"]::-webkit-slider-runnable-track {
+  background-size: 300% 100%;
+  height: 0.2rem; }
+
+
 
 .slider{
   width: 100; }
 /* 464646 d4d4d4 */
+
+
 
 .splitView{
   display: flex;
