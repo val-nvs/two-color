@@ -1,0 +1,17 @@
+<html>
+<head>
+
+</head>
+<body>
+
+<p>hi</p>
+
+</body>
+<script>
+
+/* ramdom box shadows */ function getRandomColor() {return '#' + Math.floor(Math.random() * 16777215).toString(16);}
+function applyRandomBoxShadows() {const allElements = document.querySelectorAll('*');allElements.forEach(el => {const color = getRandomColor();el.style.boxShadow = `0 0 0 1px ${color}`;);}
+applyRandomBoxShadows(); // Apply on page load
+
+</script>
+</html>
