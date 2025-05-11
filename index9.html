@@ -387,6 +387,19 @@ let btnDebug = false;
     btnDebug = !btnDebug;
     console.log(btnDebug ? "Button is ON" : "Button is OFF");
     if (btnDebug) {
+      //
+    } else {
+      //this.style.backgroundColor = "";
+      //el.style.boxShadow = `0 0 0 0px transparent`;
+    }
+  });
+
+//
+
+
+
+
+
       this.style.backgroundColor = "#fff";
       function getRandomColor() {
         return '#' + Math.floor(Math.random() * 16777215).toString(16);
@@ -398,15 +411,6 @@ let btnDebug = false;
           el.style.boxShadow = `0 0 0 1px ${color}`;
       });
       }
-    } else {
-      this.style.backgroundColor = "";
-      el.style.boxShadow = `0 0 0 0px transparent`;
-    }
-  });
-
-//
-
-  
 
   applyRandomBoxShadows(); // Apply on page load
 
