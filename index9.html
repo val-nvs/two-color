@@ -13,36 +13,12 @@
 
 <style>
 
-/*bezier*/
-/* 1) Make sure your layout container is position: relative; */
-/*    (you already have `body` and `#pageBox` as relative/flow, so this is probably fine) */
-/* 2) Full-page SVG overlay: */
-#bezier-svg {
-  position: absolute;   /* take out of the flow */
-  top:    0;
-  left:   0;
-  width:  100%;
-  height: 100%;
-  pointer-events: none; /* let clicks “through” to your inputs */
-  overflow: visible;
-  z-index: 999;         /* on top of everything */
-}
-/* 3) Your Bézier <path> styling: */
-#bezier-path {
-  stroke:       red;
-  stroke-width: 2;
-  fill:         none;
-}
-#bezier-endpoint {
-  /* you already have p { margin… } so just ensure this ID is on the <p> */
-  position: absolute;   /* you probably already have this in your layout */
-  /* top/left as needed */
-}
-#protoanSlider {
-  /* you already have input[type="range"]… */
-  position: relative ;   /* so JS can calculate its getBoundingClientRect() */
-  /* width, top/left as you already set in .sliderBox */
-}
+html, body { margin:0; height:100%; position:relative; }
+    p#endpoint { position:absolute; top:100px; left:50px; }
+    input#protoanSlider  { position:absolute; top:200px; left:300px; width:300px; }
+    svg#connector { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; }
+    line { stroke:red; stroke-width:2; }
+
 
 @keyframes morph {
   0% { font-variation-settings: "MORF" 10;}
@@ -276,15 +252,22 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 
 
+html, body { margin:0; height:100%; position:relative; }
+    p#endpoint { position:absolute; top:100px; left:50px; }
+    input#protoanSlider  { position:absolute; top:200px; left:300px; width:300px; }
+    svg#connector { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; }
+    line { stroke:red; stroke-width:2; }
+
+
 </style></head><body>
 
-<svg id="bezier-svg">
-  <path id="bezier-path" d="" />
-</svg>
+  <svg id="connector">
+    <line id="line" x1="0" y1="0" x2="0" y2="0"/>
+  </svg>
 
 <div id="pageBox">
   <div class="header">
-    <p id="bezier-endpoint">a</p>
+    <p id="endpoint">a</p>
     <p>b</p>
   </div>
   <div class="sliderBox">
@@ -436,40 +419,36 @@ let btnDebug = false;
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
-      const endpoint = document.getElementById('bezier-endpoint');
-      const slider   = document.getElementById('protoanSlider');
-      const svg      = document.getElementById('bezier-svg');
-      const path     = document.getElementById('bezier-path');
-      function updateBezier() {
-        const eRect = endpoint.getBoundingClientRect();
-        const sRect = slider.getBoundingClientRect();
-        const t = (slider.value - slider.min) / (slider.max - slider.min);
-        // calculate points
-        const thumbX = sRect.left + t * sRect.width;
-        const thumbY = sRect.top  + sRect.height / 2;
-        const endX   = eRect.right;
-        const endY   = eRect.top   + eRect.height / 2;
-        // control points (adjust curve)
-        const conPt1x = thumbX;
-        const conPt1y = thumbY - 80;
-        const conPt2x = endX;
-        const conPt2y = endY    - 80;
-        //
-        const d = `
-          M ${thumbX},${thumbY}
-          C ${conPt1x},${conPt1y}
-            ${conPt2x},${conPt2y}
-            ${endX},${endY}
-        `;
-        path.setAttribute('d', d);
-      }
-      slider.addEventListener('input',  updateBezier);
-      window.addEventListener('resize', updateBezier);
-      updateBezier();
-    });
+
+    
 
 
+
+
+    const conn_p      = document.getElementById('endpoint');
+    const conn_protoanSlider = document.getElementById('protoanSlider');
+    const conn_line   = document.getElementById('line');
+
+    function conn_update() {
+      const conn_pr = conn_p.getBoundingClientRect();
+      const conn_sr = conn_protoanSlider.getBoundingClientRect();
+      const conn_t  = (conn_protoanSlider.value - conn_protoanSlider.min) 
+                      / (conn_protoanSlider.max - conn_protoanSlider.min);
+
+      const conn_x1 = conn_pr.left + conn_pr.width  / 2;
+      const conn_y1 = conn_pr.top  + conn_pr.height / 2;
+      const conn_x2 = conn_sr.left + conn_t * conn_sr.width;
+      const conn_y2 = conn_sr.top  + conn_sr.height / 2;
+
+      conn_line.setAttribute('x1', conn_x1);
+      conn_line.setAttribute('y1', conn_y1);
+      conn_line.setAttribute('x2', conn_x2);
+      conn_line.setAttribute('y2', conn_y2);
+    }
+
+    conn_protoanSlider.addEventListener('input',  conn_update);
+    window.addEventListener('resize', conn_update);
+    conn_update();
 
 
 
