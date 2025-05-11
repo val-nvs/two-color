@@ -15,7 +15,7 @@
 body{
   background: #2b2b2b;
   font-family: "Atkinson Hyperlegible Next", sans-serif;
-  font-size: 0.5;
+  font-size: 0.4;
   color: #fff;
 }
 
@@ -96,13 +96,13 @@ input[type="range"]::-webkit-slider-runnable-track {
     <p id="whiteBalanceVal">+0%</p>
   </div>
   <div class="sliderBox">
-    <input id="longConeSlider" type="range" min="-180" value="0" max="180">
+    <input id="longConeSlider" type="range" min="-180" value="0" max="179">
   </div>
-  <div id="imageBox">
+  <div id="mainImgBox">
     <img id="mainImg" alt="Main Image" src="268D6124-F132-439F-8435-2221421CCA87.jpeg">
   </div>
   <div class="sliderBox">
-    <input id="protoanSlider" type="range" min="0" value="120" max="360">
+    <input id="protoanSlider" type="range" min="0" value="120" max="359">
   </div>
   <div id="buttonBox" class="splitView">
     <button id="btnUpload" class="button">Upload</button>
@@ -167,21 +167,20 @@ input[type="range"]::-webkit-slider-runnable-track {
   </div>
   <div class="history">
     <div class="photoFrame">
-      <img id="" alt="" loading="lazy" src="B07215AE-6C65-48D1-BE46-5BFD81D0C601.jpeg">
+      <img id="" alt="tollSea" loading="lazy" src="B07215AE-6C65-48D1-BE46-5BFD81D0C601.jpeg">
       <p>The Toll of the Sea, 1922</p>
       <p>Anna May Wong <span class="tiny">（竖排）</span><span class="hanBig">霜</span><span class="hanHalf">柳</span><span class="hanBig">黄</span><br><span style="padding-right: 8ch">and Kenneth Harlan</span></p>
     </div>
     <div class="photoFrame">
-      <img id="" alt="" loading="lazy" src="99E75FE1-7E71-41D5-AB2B-FE2E9FF1DE20.jpeg">
+      <img id="" alt="phantom" loading="lazy" src="99E75FE1-7E71-41D5-AB2B-FE2E9FF1DE20.jpeg">
       <p>The Phantom of the Opera, 1925</p>
     </div>
     <div class="photoFrame">
-      <img id="" alt="" loading="lazy" src="C719662D-4729-4199-B402-E161AAF60E57.jpeg">
+      <img id="" alt="bride" loading="lazy" src="C719662D-4729-4199-B402-E161AAF60E57.jpeg">
       <p>Bride of the Regiment, 1930</p>
       <p>Myrna Loy and Walter Pidgeon</p>
     </div>
   </div>
-  <button id="btnDebug" class="button">debug</button>
 </div>
 
 </body>
