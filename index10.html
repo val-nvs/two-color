@@ -17,7 +17,7 @@ body img{
   width: 100%;
 }
 
-.flexHor{
+.splitview{
   display: flex;
   justify-content: space-between;
 }
@@ -27,9 +27,10 @@ body img{
 <body>
 
 <div class="pageBox">
-  <div class="header flexHor">
-    <p id="dispProtoan">a</p>
-    <p id="dispLongCone">b</p>
+  <div class="header splitView">
+    <p id="protoanHueVal">120°</p>
+    <p id="longConeHueVal">0°</p>
+    <p id="whiteBalanceVal">+0%</p>
   </div>
   <div class="sliderBox">
     <input id="longConeSlider" type="range" min="-180" value="0" max="180">
@@ -40,7 +41,7 @@ body img{
   <div class="sliderBox">
     <input id="protoanSlider" type="range" min="0" value="120" max="360">
   </div>
-  <div id="buttonBox" class="flexHor">
+  <div id="buttonBox" class="splitView">
     <button id="btnUpload" class="button">Upload</button>
     <button id="btnWB" class="button">WB</button>
     <div id="buttonGroup">
@@ -48,8 +49,8 @@ body img{
       <button id="btnB" class="button">B</button>
       <button id="btnGB" class="button">G+B</button>
     </div>
-    <button id="btnSave" class="button">Save</button>
     <button id="btnInfo" class="button">Info</button>
+    <button id="btnSave" class="button">Save</button>
   </div>
   <div class="sliderBox">
     <input id="wbSlider" type="range" min="-100" value="0" max="100">
@@ -64,7 +65,7 @@ body img{
       <p>After White Balance</p>
     </div>
   </div>
-  <div class="splitView flexHor">
+  <div class="splitView">
     <div class="photoFrame">
       <img id="monoR" alt="" src="268D6124-F132-439F-8435-2221421CCA87.jpeg">
       <p>Red</p>
