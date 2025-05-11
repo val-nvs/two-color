@@ -16,7 +16,99 @@
 </head>
 <body>
 
-<p>hi</p>
+<div id="pageBox">
+  <div class="header">
+    <p id="dispProtoan">a</p>
+    <p id="dispLongCone">b</p>
+  </div>
+  <div class="sliderBox">
+    <input id="longConeSlider" type="range" min="-180" value="0" max="180">
+  </div>
+  <div id="imageBox">
+    <img id="mainImg" alt="Main Image" src="268D6124-F132-439F-8435-2221421CCA87.jpeg">
+  </div>
+  <div class="sliderBox">
+    <input id="protoanSlider" type="range" min="0" value="120" max="360">
+  </div>
+  <div id="buttonBox">
+    <button id="btnUpload" class="button">Upload</button>
+    <button id="btnWB" class="button">WB</button>
+    <div id="buttonGroup">
+      <button id="btnG" class="button">G</button>
+      <button id="btnB" class="button">B</button>
+      <button id="btnGB" class="button">G+B</button>
+    </div>
+    <button id="btnSave" class="button">Save</button>
+    <button id="btnInfo" class="button">Info</button>
+  </div>
+  <div class="sliderBox">
+    <input id="wbSlider" type="range" min="-100" value="0" max="100">
+  </div>
+  <div class="splitView">
+    <div class="photoFrame">
+      <img id="originalImg" alt="" src="268D6124-F132-439F-8435-2221421CCA87.jpeg">
+      <p>Original</p>
+    </div>
+    <div class="photoFrame">
+      <img id="afterWB" alt="" src="268D6124-F132-439F-8435-2221421CCA87.jpeg">
+      <p>After White Balance</p>
+    </div>
+  </div>
+  <div class="splitView">
+    <div class="photoFrame">
+      <img id="monoR" alt="" src="268D6124-F132-439F-8435-2221421CCA87.jpeg">
+      <p>Red</p>
+    </div>
+    <div class="photoFrame">
+      <img id="monoG" alt="" src="268D6124-F132-439F-8435-2221421CCA87.jpeg">
+      <p>Green</p>
+    </div>
+    <div class="photoFrame">
+      <img id="monoB" alt="" src="268D6124-F132-439F-8435-2221421CCA87.jpeg">
+      <p>Blue</p>
+    </div>
+    <div class="photoFrame">
+      <img id="monoGB" alt="" src="268D6124-F132-439F-8435-2221421CCA87.jpeg">
+      <p>Green+Blue</p>
+    </div>
+  </div>
+  <p>Select sample image:</p>
+  <div class="splitView">
+    <div class="photoFrame">
+      <img id="colorChecker" alt="" src="268D6124-F132-439F-8435-2221421CCA87.jpeg">
+      <p>Checker</p>
+    </div>
+    <div class="photoFrame">
+      <img id="colorBars" alt="" src="11171312-50DE-405F-A04F-979B560059E9.png">
+      <p>Bars</p>
+    </div>
+    <div class="photoFrame">
+      <img id="colorCircle" alt="" src="19F9E437-99BD-4312-A09F-094AEA2034B9.jpeg">
+      <p>Circle</p>
+    </div>
+    <div class="photoFrame">
+      <img id="colorTest" alt="" src="11171312-50DE-405F-A04F-979B560059E9.png">
+      <p>Test</p>
+    </div>
+  </div>
+  <div class="history">
+    <div class="photoFrame">
+      <img id="" alt="" src="B07215AE-6C65-48D1-BE46-5BFD81D0C601.jpeg">
+      <p>The Toll of the Sea, 1922</p>
+      <p>Anna May Wong <span class="tiny">（竖排）</span><span class="hanBig">霜</span><span class="hanHalf">柳</span><span class="hanBig">黄</span><br><span style="padding-right: 8ch">and Kenneth Harlan</span></p>
+    </div>
+    <div class="photoFrame">
+      <img id="" alt="" src="99E75FE1-7E71-41D5-AB2B-FE2E9FF1DE20.jpeg">
+      <p>The Phantom of the Opera, 1925</p>
+    </div>
+    <div class="photoFrame">
+      <img id="" alt="" src="C719662D-4729-4199-B402-E161AAF60E57.jpeg">
+      <p>Bride of the Regiment, 1930</p>
+      <p>Myrna Loy and Walter Pidgeon</p>
+    </div>
+  </div>
+  <button id="btnDebug" class="button">debug</button>
+</div>
 
 </body>
 <script>
