@@ -13,6 +13,13 @@
 
 <style>
 
+:root {
+      --protoanHue: 30deg;
+      --protoanColor: rgb(255,128,0);
+      --longConeHue: 180deg;
+      --longConeColor: rgb(0,255,255);
+    }
+
 @keyframes morph {
   0% { font-variation-settings: "MORF" 10;}
   100%{font-variation-settings: "MORF" 15;} }
@@ -140,7 +147,7 @@ body {
 .photoFrame {
   padding: 0rem;
   border-radius: 0.25rem;
-  background: #181818;
+  background: var(--longConeColor);
   box-shadow: 0 0 0.15rem #fff;
 }
 .photoFrame img {
@@ -269,14 +276,7 @@ svg#connector {
 line {
   stroke:red; stroke-width:2; }
 
-.colorBox {
-  width: 4rem;
-  height: 3rem;
-  line-height: inherit;
-  text-align: center;
-  color: #fff;
-  margin-bottom: 0rem;
-}
+
 
 </style></head><body>
 
@@ -445,6 +445,18 @@ let btnDebug = false;
       dispProtoan.textContent = `Hue 1: ${hue}°`;
     });
     protoanSlider.dispatchEvent(new Event('input')); // initialize
+
+const slider = document.getElementById('longConeSlider');
+slider.addEventListener('input', () => {
+  const hue   = +slider.value;
+  const color = hueToRgb(hue);
+  document.documentElement.style.setProperty('--longConeHue',   `${hue}deg`);
+  document.documentElement.style.setProperty('--longConeColor',  color);
+});
+
+slider.dispatchEvent(new Event('input'));
+
+
     //
     const longConeSlider = document.getElementById('longConeSlider');
     const dispLongCone = document.getElementById('dispLongCone');
@@ -456,6 +468,15 @@ let btnDebug = false;
     });
     longConeSlider.dispatchEvent(new Event('input')); // initialize
 
+const slider = document.getElementById('longConeSlider');
+slider.addEventListener('input', () => {
+  const hue   = +slider.value;
+  const color = hueToRgb(hue);
+  document.documentElement.style.setProperty('--longConeHue',   `${hue}deg`);
+  document.documentElement.style.setProperty('--longConeColor',  color);
+});
+
+slider.dispatchEvent(new Event('input'));
 
 
 
