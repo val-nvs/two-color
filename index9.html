@@ -269,6 +269,14 @@ svg#connector {
 line {
   stroke:red; stroke-width:2; }
 
+.colorBox {
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 1em;
+}
 
 </style></head><body>
 
@@ -370,6 +378,11 @@ line {
   <button id="btnDebug" class="button">debug</button>
 </div>
 
+<input type="range" id="slider1" min="0" max="359" value="0">
+<div id="display1" class="colorBox">Hue 1: 0°</div>
+<input type="range" id="slider2" min="0" max="359" value="0">
+<div id="display2" class="colorBox">Hue 2: 0°</div>
+
 </body>
 
 <script>
@@ -403,28 +416,47 @@ let btnDebug = false;
 
 
 
-/**
- * Convert a hue (0–359) at full saturation/value (HSV) to RGB.
- * @param {number} prefH - Hue angle in degrees [0, 359].
- * @returns {{ r: number, g: number, b: number }} RGB components in [0, 255].
- */
-function prefHueToRgb(prefH) {
-  // Clamp/normalize hue to [0, 360)
-  prefH = ((prefH % 360) + 360) % 360;
-  //
-  const c = 1;  // chroma = V * S = 1 * 1
-  const x = 1 - Math.abs((prefH / 60) % 2 - 1);
-  const m = 0;  // m = V − C = 0
-  //
-  let r1, g1, b1;
-  if (prefH < 60) { [r1, g1, b1] = [c, x, 0];
-  } else if (prefH < 120) {[r1, g1, b1] = [x, c, 0];
-  } else if (prefH < 180) {[r1, g1, b1] = [0, c, x];
-  } else if (prefH < 240) {[r1, g1, b1] = [0, x, c];
-  } else if (prefH < 300) {[r1, g1, b1] = [x, 0, c];
-  } else { [r1, g1, b1] = [c, 0, x];
-  } return `#${[r1, g1, b1].map(c => Math.round((c + m) * 255).toString(16).padStart(2, '0')).join('')}`;
-}
+
+
+
+
+    // hue → RGB string function:
+    function hueToRgb(h) {
+      h = ((h % 360) + 360) % 360;
+      const c = 1;
+      const x = 1 - Math.abs((h/60) % 2 - 1);
+      let r1, g1, b1;
+      if      (h < 60)  [r1, g1, b1] = [c, x, 0];
+      else if (h < 120) [r1, g1, b1] = [x, c, 0];
+      else if (h < 180) [r1, g1, b1] = [0, c, x];
+      else if (h < 240) [r1, g1, b1] = [0, x, c];
+      else if (h < 300) [r1, g1, b1] = [x, 0, c];
+      else              [r1, g1, b1] = [c, 0, x];
+      return `rgb(${Math.round(r1*255)}, ${Math.round(g1*255)}, ${Math.round(b1*255)})`;
+    }
+
+    // Slider #1
+    const slider1 = document.getElementById('slider1');
+    const display1 = document.getElementById('display1');
+    slider1.addEventListener('input', () => {
+      const hue = slider1.value;
+      const col = hueToRgb(hue);
+      display1.style.backgroundColor = col;
+      display1.textContent = `Hue 1: ${hue}°`;
+    });
+    slider1.dispatchEvent(new Event('input')); // initialize
+    // Slider #2
+    const slider2 = document.getElementById('slider2');
+    const display2 = document.getElementById('display2');
+    slider2.addEventListener('input', () => {
+      const hue = slider2.value;
+      const col = hueToRgb(hue);
+      display2.style.backgroundColor = col;
+      display2.textContent = `Hue 2: ${hue}°`;
+    });
+    slider2.dispatchEvent(new Event('input')); // initialize
+
+
 
 
 
