@@ -261,18 +261,18 @@ input[type="range"]:hover::-webkit-slider-thumb {
 </body>
 <script>
 
-let btnWB = false;
+let btnWB = true;
   document.getElementById("btnWB").addEventListener("click", function() {
     btnWB = !btnWB;
     console.log(btnWB ? "Button is ON" : "Button is OFF");
     if (btnWB) {
       this.style.backgroundColor = "#d4d4d4";
       this.style.color = "#000";
-      box-shadow: 0 0 0.5rem #fff;
+      this.style.box-shadow: 0 0 0.5rem #fff;
     } else {
       this.style.backgroundColor = "#464646";
       this.style.color = "#fff";
-      box-shadow: 0 0 0rem #f0f;
+      this.style.box-shadow: 0 0 0rem #f0f;
     }
   });
 
