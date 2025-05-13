@@ -1,103 +1,140 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1650" height="900">
-  <!-- Define gradient for row 8 -->
+<svg width="14" height="12" viewBox="0 0 14 12" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="row8grad" gradientUnits="userSpaceOnUse"
-                    x1="100" y1="800" x2="700" y2="800">
-      <stop offset="0%"      stop-color="#ff0000"/>
-      <stop offset="16.667%" stop-color="#ffff00"/>
-      <stop offset="33.333%" stop-color="#00ff00"/>
-      <stop offset="50%"     stop-color="#00ffff"/>
-      <stop offset="66.667%" stop-color="#0000ff"/>
-      <stop offset="83.333%" stop-color="#ff00ff"/>
-      <stop offset="100%"    stop-color="#ff0000"/>
+    <!-- Row 7 horizontal gradient: white→black -->
+    <linearGradient id="grad7h" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"  stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+
+    <!-- Rainbow horizontal (rows 8, 10 & base of 12) -->
+    <linearGradient id="rainbowH" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"      stop-color="#FF0000"/>
+      <stop offset="16.667%" stop-color="#FFFF00"/>
+      <stop offset="33.333%" stop-color="#00FF00"/>
+      <stop offset="50%"     stop-color="#00FFFF"/>
+      <stop offset="66.667%" stop-color="#0000FF"/>
+      <stop offset="83.333%" stop-color="#FF00FF"/>
+      <stop offset="100%"    stop-color="#FF0000"/>
+    </linearGradient>
+
+    <!-- Fade-to-white vertical overlay (rows 8 only) -->
+    <linearGradient id="fadeWhiteV" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"  stop-color="#FFFFFF" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Fade-to-black vertical overlay (row 12 only) -->
+    <linearGradient id="fadeBlackV" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"  stop-color="#000000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="1"/>
     </linearGradient>
   </defs>
 
-  <!-- Outer black border (50px thick) -->
-  <rect x="0" y="0" width="1650" height="900" fill="#000"/>
-
-  <!-- Interior grid offset by 50px -->
-
   <!-- Row 1 -->
-  <rect x="50"  y="50"  width="100" height="100" fill="#735244"/>
-  <rect x="150" y="50"  width="100" height="100" fill="#c29682"/>
-  <rect x="250" y="50"  width="100" height="100" fill="#627a9d"/>
-  <rect x="350" y="50"  width="100" height="100" fill="#576c43"/>
-  <rect x="450" y="50"  width="100" height="100" fill="#8580b1"/>
-  <rect x="550" y="50"  width="100" height="100" fill="#67bdaa"/>
-  <rect x="650" y="50"  width="100" height="100" fill="#808080"/>
-  <rect x="750" y="50"  width="100" height="100" fill="#808080"/>
-  <!-- image spans row1-4, col12-16 -->
-  <image x="1150" y="50" width="500" height="400"
-         href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/YCbCr-CbCr_Scaled_Y50.png/960px-YCbCr-CbCr_Scaled_Y50.png"/>
+  <rect x="0"  y="0" width="1" height="1" fill="#735244"/>
+  <rect x="1"  y="0" width="1" height="1" fill="#c29682"/>
+  <rect x="2"  y="0" width="1" height="1" fill="#627a9d"/>
+  <rect x="3"  y="0" width="1" height="1" fill="#576c43"/>
+  <rect x="4"  y="0" width="1" height="1" fill="#8580b1"/>
+  <rect x="5"  y="0" width="1" height="1" fill="#67bdaa"/>
+  <rect x="6"  y="0" width="1" height="1" fill="#FFFFFF"/>
+  <rect x="7"  y="0" width="1" height="1" fill="#FFFF00"/>
+  <rect x="8"  y="0" width="1" height="1" fill="#00FFFF"/>
+  <rect x="9"  y="0" width="1" height="1" fill="#00FF00"/>
+  <rect x="10" y="0" width="1" height="1" fill="#FF00FF"/>
+  <rect x="11" y="0" width="1" height="1" fill="#FF0000"/>
+  <rect x="12" y="0" width="1" height="1" fill="#0000FF"/>
+  <rect x="13" y="0" width="1" height="1" fill="#000000"/>
 
   <!-- Row 2 -->
-  <rect x="50"  y="150" width="100" height="100" fill="#d67e2c"/>
-  <rect x="150" y="150" width="100" height="100" fill="#505ba6"/>
-  <rect x="250" y="150" width="100" height="100" fill="#c15a63"/>
-  <rect x="350" y="150" width="100" height="100" fill="#5e3c6c"/>
-  <rect x="450" y="150" width="100" height="100" fill="#9dbc40"/>
-  <rect x="550" y="150" width="100" height="100" fill="#e0a32e"/>
-  <rect x="650" y="150" width="100" height="100" fill="#808080"/>
-  <rect x="750" y="150" width="100" height="100" fill="#ff0000"/>
-  <rect x="850" y="150" width="100" height="100" fill="#00ff00"/>
-  <rect x="950" y="150" width="100" height="100" fill="#0000ff"/>
-  <rect x="1050" y="150" width="100" height="100" fill="#ffffff"/>
+  <rect x="0"  y="1" width="1" height="1" fill="#d67e2c"/>
+  <rect x="1"  y="1" width="1" height="1" fill="#505ba6"/>
+  <rect x="2"  y="1" width="1" height="1" fill="#c15a63"/>
+  <rect x="3"  y="1" width="1" height="1" fill="#5e3c6c"/>
+  <rect x="4"  y="1" width="1" height="1" fill="#9dbc40"/>
+  <rect x="5"  y="1" width="1" height="1" fill="#e0a32e"/>
+  <rect x="6"  y="1" width="1" height="1" fill="#FFFFFF"/>
+  <rect x="7"  y="1" width="1" height="1" fill="#FFFF00"/>
+  <rect x="8"  y="1" width="1" height="1" fill="#00FFFF"/>
+  <rect x="9"  y="1" width="1" height="1" fill="#00FF00"/>
+  <rect x="10" y="1" width="1" height="1" fill="#FF00FF"/>
+  <rect x="11" y="1" width="1" height="1" fill="#FF0000"/>
+  <rect x="12" y="1" width="1" height="1" fill="#0000FF"/>
+  <rect x="13" y="1" width="1" height="1" fill="#000000"/>
 
-  <!-- Row 3 -->
-  <rect x="50"  y="250" width="100" height="100" fill="#383d96"/>
-  <rect x="150" y="250" width="100" height="100" fill="#469449"/>
-  <rect x="250" y="250" width="100" height="100" fill="#af363c"/>
-  <rect x="350" y="250" width="100" height="100" fill="#e7c71f"/>
-  <rect x="450" y="250" width="100" height="100" fill="#bb5695"/>
-  <rect x="550" y="250" width="100" height="100" fill="#0885a1"/>
-  <rect x="650" y="250" width="100" height="100" fill="#808080"/>
-  <rect x="750" y="250" width="100"	height="100" fill="#00ffff"/>
-  <rect x="850" y="250" width="100"	height="100" fill="#ffff00"/>
-  <rect x="950" y="250" width="100"	height="100" fill="#ff00ff"/>
-  <rect x="1050" y="250" width="100"	height="100" fill="#000000"/>
+  <!-- Row 3 (cols 1–6) -->
+  <rect x="0" y="2" width="1" height="1" fill="#383d96"/>
+  <rect x="1" y="2" width="1" height="1" fill="#469449"/>
+  <rect x="2" y="2" width="1" height="1" fill="#af363c"/>
+  <rect x="3" y="2" width="1" height="1" fill="#e7c71f"/>
+  <rect x="4" y="2" width="1" height="1" fill="#bb5695"/>
+  <rect x="5" y="2" width="1" height="1" fill="#0885a1"/>
 
-  <!-- Row 4 -->
-  <rect x="50"  y="350" width="100" height="100" fill="#f3f3f3"/>
-  <rect x="150" y="350" width="100" height="100" fill="#c8c8c8"/>
-  <rect x="250" y="350" width="100" height="100" fill="#a0a0a0"/>
-  <rect x="350" y="350" width="100" height="100" fill="#7a7a7a"/>
-  <rect x="450" y="350" width="100" height="100" fill="#555555"/>
-  <rect x="550" y="350" width="100" height="100" fill="#343434"/>
-  <rect x="650" y="350" width="100" height="100" fill="#808080"/>
-  <rect x="750" y="350" width="100" height="100" fill="#808080"/>
+  <!-- Row 4 (cols 1–6) -->
+  <rect x="0" y="3" width="1" height="1" fill="#f3f3f3"/>
+  <rect x="1" y="3" width="1" height="1" fill="#c8c8c8"/>
+  <rect x="2" y="3" width="1" height="1" fill="#a0a0a0"/>
+  <rect x="3" y="3" width="1" height="1" fill="#7a7a7a"/>
+  <rect x="4" y="3" width="1" height="1" fill="#555555"/>
+  <rect x="5" y="3" width="1" height="1" fill="#343434"/>
 
-  <!-- Row 5 -->
-  <rect x="50"  y="450" width="100" height="100" fill="#0000ff"/>
-  <rect x="150" y="450" width="100" height="100" fill="#00ff00"/>
-  <rect x="250" y="450" width="100" height="100" fill="#ff0000"/>
-  <rect x="350" y="450" width="100" height="100" fill="#ffff00"/>
-  <rect x="450" y="450" width="100" height="100" fill="#ff00ff"/>
-  <rect x="550" y="450" width="100" height="100" fill="#00ffff"/>
-  <rect x="650" y="450" width="100" height="100" fill="#808080"/>
-  <rect x="750" y="450" width="100"	height="100" fill="#808080"/>
+  <!-- Row 5 (cols 1–6 shifted) -->
+  <rect x="0" y="4" width="1" height="1" fill="#0000FF"/>
+  <rect x="1" y="4" width="1" height="1" fill="#00FF00"/>
+  <rect x="2" y="4" width="1" height="1" fill="#FF0000"/>
+  <rect x="3" y="4" width="1" height="1" fill="#FFFF00"/>
+  <rect x="4" y="4" width="1" height="1" fill="#FF00FF"/>
+  <rect x="5" y="4" width="1" height="1" fill="#00FFFF"/>
 
-  <!-- Row 6 -->
-  <rect x="50"  y="550" width="100" height="100" fill="#ffffff"/>
-  <rect x="150" y="550" width="100" height="100" fill="#cccccc"/>
-  <rect x="250" y="550" width="100" height="100" fill="#999999"/>
-  <rect x="350" y="550" width="100" height="100" fill="#666666"/>
-  <rect x="450" y="550" width="100" height="100" fill="#333333"/>
-  <rect x="550" y="550" width="100" height="100" fill="#000000"/>
-  <rect x="650" y="550" width="100" height="100" fill="#808080"/>
-  <rect x="750" y="550" width="100" height="100" fill="#808080"/>
+  <!-- Row 6 (cols 1–6 grayscale) -->
+  <rect x="0" y="5" width="1" height="1" fill="#FFFFFF"/>
+  <rect x="1" y="5" width="1" height="1" fill="#CCCCCC"/>
+  <rect x="2" y="5" width="1" height="1" fill="#999999"/>
+  <rect x="3" y="5" width="1" height="1" fill="#666666"/>
+  <rect x="4" y="5" width="1" height="1" fill="#333333"/>
+  <rect x="5" y="5" width="1" height="1" fill="#000000"/>
 
-  <!-- Row 7 -->
-  <rect x="50"  y="650" width="100" height="100" fill="#ff0000"/>
-  <rect x="150" y="650" width="100" height="100" fill="#ffff00"/>
-  <rect x="250" y="650" width="100" height="100" fill="#00ff00"/>
-  <rect x="350" y="650" width="100" height="100" fill="#00ffff"/>
-  <rect x="450" y="650" width="100" height="100" fill="#0000ff"/>
-  <rect x="550" y="650" width="100" height="100" fill="#ff00ff"/>
-  <rect x="650" y="650" width="100" height="100" fill="#ff0000"/>
-  <rect x="750" y="650" width="100" height="100" fill="#808080"/>
+  <!-- Row 7 (cols 1–6): only horizontal white→black -->
+  <rect x="0" y="6" width="6" height="1" fill="url(#grad7h)"/>
 
-  <!-- Row 8: gradient and middle-grey filler -->
-  <rect x="50"  y="750" width="700" height="100" fill="url(#row8grad)"/>
-  <rect x="750" y="750" width="100"	height="100" fill="#808080"/>
+  <!-- Row 8 (shifted 0.5, width=12): rainbow + top fade to white -->
+  <rect x="0.5" y="7" width="12" height="1" fill="url(#rainbowH)"/>
+  <rect x="0.5" y="7" width="12" height="1" fill="url(#fadeWhiteV)"/>
+
+  <!-- Row 9 (cols 1–13) -->
+  <rect x="0"  y="8" width="1" height="1" fill="#FF0000"/>
+  <rect x="1"  y="8" width="1" height="1" fill="#FF8000"/>
+  <rect x="2"  y="8" width="1" height="1" fill="#FFFF00"/>
+  <rect x="3"  y="8" width="1" height="1" fill="#80FF00"/>
+  <rect x="4"  y="8" width="1" height="1" fill="#00FF00"/>
+  <rect x="5"  y="8" width="1" height="1" fill="#00FF80"/>
+  <rect x="6"  y="8" width="1" height="1" fill="#00FFFF"/>
+  <rect x="7"  y="8" width="1" height="1" fill="#0080FF"/>
+  <rect x="8"  y="8" width="1" height="1" fill="#0000FF"/>
+  <rect x="9"  y="8" width="1" height="1" fill="#8000FF"/>
+  <rect x="10" y="8" width="1" height="1" fill="#FF00FF"/>
+  <rect x="11" y="8" width="1" height="1" fill="#FF0080"/>
+  <rect x="12" y="8" width="1" height="1" fill="#FF0000"/>
+
+  <!-- Row 10 (shifted 0.5, width=12): only rainbow -->
+  <rect x="0.5" y="9" width="12" height="1" fill="url(#rainbowH)"/>
+
+  <!-- Row 11 (cols 1–13) -->
+  <rect x="0"  y="10" width="1" height="1" fill="#FF0000"/>
+  <rect x="1"  y="10" width="1" height="1" fill="#FF8000"/>
+  <rect x="2"  y="10" width="1" height="1" fill="#FFFF00"/>
+  <rect x="3"  y="10" width="1" height="1" fill="#80FF00"/>
+  <rect x="4"  y="10" width="1" height="1" fill="#00FF00"/>
+  <rect x="5"  y="10" width="1" height="1" fill="#00FF80"/>
+  <rect x="6"  y="10" width="1" height="1" fill="#00FFFF"/>
+  <rect x="7"  y="10" width="1" height="1" fill="#0080FF"/>
+  <rect x="8"  y="10" width="1" height="1" fill="#0000FF"/>
+  <rect x="9"  y="10" width="1" height="1" fill="#8000FF"/>
+  <rect x="10" y="10" width="1" height="1" fill="#FF00FF"/>
+  <rect x="11" y="10" width="1" height="1" fill="#FF0080"/>
+  <rect x="12" y="10" width="1" height="1" fill="#FF0000"/>
+
+  <!-- Row 12 (shifted 0.5, width=12): rainbow + bottom fade to black -->
+  <rect x="0.5" y="11" width="12" height="1" fill="url(#rainbowH)"/>
+  <rect x="0.5" y="11" width="12" height="1" fill="url(#fadeBlackV)"/>
 </svg>
