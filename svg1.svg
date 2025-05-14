@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="200" height="200" viewBox="0 0 200 200">
+  <!-- Gray background filling the whole canvas -->
+  <rect x="0" y="0" width="100%" height="100%" fill="gray"/>
+
+  <!-- Embed svg2.svg at 50% size, centered:
+       x="25%" and y="25%" to push it in from all sides equally -->
+  <image href="svg2.svg"
+         x="25%" y="25%"
+         width="50%" height="50%"
+         preserveAspectRatio="xMidYMid meet" />
+</svg>
