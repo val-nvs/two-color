@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Define a symbol with overlay blending -->
+    <symbol id="rgbOverlay" viewBox="0 0 300 300">
+      <g style="isolation:isolate">
+        <circle cx="150" cy="100" r="80" fill="red"
+                style="mix-blend-mode:overlay"/>
+        <circle cx="100" cy="180" r="80" fill="lime"
+                style="mix-blend-mode:overlay"/>
+        <circle cx="200" cy="180" r="80" fill="blue"
+                style="mix-blend-mode:overlay"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
