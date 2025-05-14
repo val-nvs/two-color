@@ -17,7 +17,7 @@
       <stop offset="100%"    stop-color="#FF0000"/>
     </linearGradient>
 
-    <!-- Fade-to-white vertical overlay (rows 8 only) -->
+    <!-- Fade-to-white vertical overlay (row 8 only) -->
     <linearGradient id="fadeWhiteV" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%"  stop-color="#FFFFFF" stop-opacity="1"/>
       <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
@@ -69,6 +69,9 @@
   <rect x="3" y="2" width="1" height="1" fill="#e7c71f"/>
   <rect x="4" y="2" width="1" height="1" fill="#bb5695"/>
   <rect x="5" y="2" width="1" height="1" fill="#0885a1"/>
+
+  <!-- Embed HSV1.svg over columns 7–11, rows 3–7 -->
+  <image href="HSV1.svg" x="6" y="2" width="5" height="5"/>
 
   <!-- Row 4 (cols 1–6) -->
   <rect x="0" y="3" width="1" height="1" fill="#f3f3f3"/>
