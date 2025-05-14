@@ -158,19 +158,16 @@
 
 
 
+
+
+
+
 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10">
   <rect x="0" y="0" width="14" height="10"
     fill="transparent"/>
 <svg x="6" y="2"
   width="5" height="5" viewBox="0 0 5 5">
 <!--svg bellow-->
-
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    width="264.58334"
-    height="264.58334"
-    viewBox="0 0 264.58334 264.58334">
 
   <defs xmlns="http://www.w3.org/2000/svg">
     <linearGradient id="a">
@@ -544,7 +541,6 @@
     <path d="m 128.82867,32.46199 a 132.29167,132.29167 0 0 1 2.53944,-0.04211 l 0.92356,132.28845 z" fill="#ff0004"/>
     <circle cx="132.29167" cy="164.70831" r="132.29167" fill="url(#b)"/>
   </g>
-</svg>
 
 <!--svg above-->
 </svg></svg>
