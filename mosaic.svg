@@ -141,15 +141,12 @@
   <rect x="0.5" y="11" width="12" height="1" fill="url(#rainbowH)"/>
   <rect x="0.5" y="11" width="12" height="1" fill="url(#fadeBlackV)"/>
 
-<svg xmlns="http://www.w3.org/2000/svg"
-     width="5" height="5" viewBox="0 0 5 5">
-  <!-- Gray background -->
-  <rect x="7" y="3" width="100%" height="100%" fill="orange"/>
+<svg width="14" height="12" viewBox="0 0 14 12" xmlns="http://www.w3.org/2000/svg">
+  <!-- Light gray background for visibility -->
+  <rect x="0" y="0" width="2" height="2" fill="#eee"/>
 
-  <!-- Inline svg2.svg centered and scaled -->
-  <svg x="3" y="3" width="7" height="7" viewBox="0 0 7 7">
-    <rect x="0" y="01" width="100%" height="100%" fill="blue"/>
-  </svg>
+  <!-- Blue square positioned at (7, 3), sized 5x5 -->
+  <rect x="7" y="3" width="5" height="5" fill="blue"/>
 </svg>
 
 </svg>
