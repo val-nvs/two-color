@@ -179,6 +179,10 @@ input[type="range"]:hover::-webkit-slider-thumb {
   </div>
   <div id="buttonBox" class="splitView">
     <button id="btnUpload" class="button"><span class="material-symbols-outlined">upload</span><br>Upload</button>
+    <input type="file"
+           id="fileInput"
+           accept="image/*"
+           style="display: none;">
     <button id="btnWB" class="button"><span class="material-symbols-outlined">brightness_6</span><br>WB</button>
     <div id="buttonGroup">
       <button id="btnG" class="button"><span class="material-symbols-outlined">visibility</span><br>G</button>
@@ -261,11 +265,11 @@ input[type="range"]:hover::-webkit-slider-thumb {
 </body>
 <script>
 
-let btnWB = false;
-  document.getElementById("btnWB").addEventListener("click", function() {
-    btnWB = !btnWB;
-    console.log(btnWB ? "Button is ON" : "Button is OFF");
-    if (btnWB) {
+let btnInfo = false;
+  document.getElementById("btnInfo").addEventListener("click", function() {
+    btnInfo = !btnInfo;
+    console.log(btnInfo ? "info is ON" : "info is OFF");
+    if (btnInfo) {
       this.style.backgroundColor = "#d4d4d4";
       this.style.color = "#000";
       this.style.boxShadow = "0 0 0.5rem #fff";
@@ -275,6 +279,57 @@ let btnWB = false;
       this.style.boxShadow = "0 0 0rem #f0f";
     }
   });
+
+
+// 1. Keep track of state and grab elements
+let btnWB = false;
+const wbButton = document.getElementById("btnWB");
+const wbSlider = document.getElementById("wbSlider");
+// 2. Encapsulate all “on/off” styling in one place
+function setWB(on) {
+  btnWB = on;
+  if (btnWB) {
+    wbButton.style.backgroundColor = "#d4d4d4";
+    wbButton.style.color           = "#000";
+    wbButton.style.boxShadow       = "0 0 0.5rem #fff";
+  } else {
+    wbButton.style.backgroundColor = "#464646";
+    wbButton.style.color           = "#fff";
+    wbButton.style.boxShadow       = "0 0 0rem #f0f";
+  }
+}
+// 3. Button click toggles
+wbButton.addEventListener("click", () => {
+  setWB(!btnWB);
+  console.log(btnWB ? "Button is ON" : "Button is OFF");
+});
+// 4. Slider movement always turns WB “on”
+wbSlider.addEventListener("input", () => {
+  if (!btnWB) {
+    setWB(true);
+    console.log("WB Button turned ON by slider");
+  }
+  // └ if want “zero” to turn it off again:
+  // if (wbSlider.value == 0) setWB(false);
+});
+
+
+// JS (at the bottom of <script> block)
+const uploadBtn = document.getElementById("btnUpload");
+const fileInput = document.getElementById("fileInput");
+const mainImg   = document.getElementById("mainImg");
+// When “Upload” is clicked, open file picker:
+uploadBtn.addEventListener("click", () => {
+  fileInput.click();
+});
+// When a file is chosen, set it as the main image:
+fileInput.addEventListener("change", e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  mainImg.src = URL.createObjectURL(file);
+});
+
+
 
 // ramdom box shadows:
 function getRandomColor() {return '#' + Math.floor(Math.random() * 16777215).toString(16);}
