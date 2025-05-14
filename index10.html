@@ -113,7 +113,7 @@ input[type="range"]::-webkit-slider-thumb {
   width: 2rem;
   height: 1.5rem;
   background: #fff;
-  border-radius: 0.05rem;
+  border-radius: 10%;
   cursor: pointer;
   margin-top: -0.65rem; }
 input[type="range"]:hover::-webkit-slider-thumb {
@@ -237,7 +237,7 @@ input[type="range"]:hover::-webkit-slider-thumb {
       </div>
       <div id="yosemiteBox" class="photoFrame">
         <img id="yosemiteImg" alt="yosemite cc-by Mikhail Kalugin" src="966F7B0B-E7F5-4C4C-9387-A050E10DB83F.jpeg">
-        <p>Yosemite<span class="tiny"><br>CC-BY Mikhail Kalugin</span></p>
+        <p>Yosemite<span class="tiny"> CC-BY Mikhail Kalugin</span></p>
       </div>
     </div>
   </div>
@@ -262,7 +262,7 @@ input[type="range"]:hover::-webkit-slider-thumb {
 </body>
 <script>
 
-let btnWB = true;
+let btnWB = false;
   document.getElementById("btnWB").addEventListener("click", function() {
     btnWB = !btnWB;
     console.log(btnWB ? "Button is ON" : "Button is OFF");
