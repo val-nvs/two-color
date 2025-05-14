@@ -146,4 +146,25 @@
   <rect x="7" y="3" width="1" height="1" fill="orange"/>
 </svg>
 
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10">
+  <rect x="0" y="0" width="14" height="10"
+    fill="#eee"/>
+<svg x="6" y="2"
+  width="5" height="5" viewBox="0 0 5 5">
+<!--svg bellow-->
+
+ <rect x="0" y="0" width="5" height="5" fill="green"/>
+
+<!--svg above-->
+</svg></svg>
+
+
+
+
+
+
 </svg>
