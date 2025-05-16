@@ -9,7 +9,7 @@
     }
     text {
       font-family: 'MyFont', sans-serif;
-      font-size: .65rem;
+      font-size: .6rem;
       text-anchor: start;
       dominant-baseline: hanging;
       fill: #000;
@@ -23,9 +23,35 @@
   <defs>
     <!-- Row 7 horizontal gradient: white→black -->
     <linearGradient id="grad7h" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"  stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+
+    <!-- Row 8 horizontal gradient: white→black -->
+    <linearGradient id="grad8h" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%"  stop-color="#000000"/>
       <stop offset="100%" stop-color="#FFFFFF"/>
     </linearGradient>
+
+
+
+    <linearGradient id="RG" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"  stop-color="#FF0000"/>
+      <stop offset="50%" stop-color="#FFFF00"/>
+      <stop offset="100%" stop-color="#00FF00"/>
+    </linearGradient>
+    <linearGradient id="GB" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"  stop-color="#00FF00"/>
+      <stop offset="50%" stop-color="#00FFFF"/>
+      <stop offset="100%" stop-color="#0000FF"/>
+    </linearGradient>
+    <linearGradient id="BR" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"  stop-color="#0000FF"/>
+      <stop offset="50%" stop-color="#FF00FF"/>
+      <stop offset="100%" stop-color="#FF0000"/>
+    </linearGradient>
+
+
 
     <!-- Rainbow horizontal (rows 8, 10 & base of 12) -->
     <linearGradient id="rainbowH" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -53,6 +79,10 @@
 
 
 <rect x="0" y="0" width="140" height="120" fill="#808080"/>
+<rect x="60" y="20" width="30" height="30" fill="#000000"/>
+<rect x="60" y="50" width="30" height="30" fill="#FFFFFF"/>
+<rect x="90" y="20" width="30" height="30" fill="#FFFFFF"/>
+<rect x="90" y="50" width="30" height="30" fill="#000000"/>
 
   <!-- Row 1 -->
 <rect x="0" y="0" width="10" height="10" fill="#735244"/>
@@ -114,15 +144,19 @@
 <rect x="50" y="40" width="10" height="10" fill="#00FFFF"/>
 
 <!-- Row 6 (cols 1–6 grayscale) -->
-<rect x="0" y="50" width="10" height="10" fill="#FFFFFF"/>
+<rect x="0" y="50" width="10" height="20" fill="#FFFFFF"/>
 <rect x="10" y="50" width="10" height="10" fill="#CCCCCC"/>
 <rect x="20" y="50" width="10" height="10" fill="#999999"/>
 <rect x="30" y="50" width="10" height="10" fill="#666666"/>
 <rect x="40" y="50" width="10" height="10" fill="#333333"/>
-<rect x="50" y="50" width="10" height="10" fill="#000000"/>
+<rect x="50" y="50" width="10" height="20" fill="#000000"/>
 
-<!-- Row 7 (cols 1–6): only horizontal white→black -->
-<rect x="0" y="60" width="60" height="20" fill="url(#grad7h)"/>
+<!-- Row 7 (cols 2–5): only horizontal white→black -->
+<rect x="10" y="60" width="40" height="10" fill="url(#grad7h)"/>
+
+<!-- Row 8 (cols 1–6): only horizontal white→black -->
+<rect x="0" y="70" width="60" height="10" fill="url(#grad8h)"/>
+
 
 <!-- Row  (shifted 0.5, width=12): rainbow + top fade to white -->
 <rect x="5" y="100" width="120" height="10" fill="url(#rainbowH)"/>
@@ -153,6 +187,9 @@
 <rect x="5" y="110" width="120" height="10" fill="url(#fadeBlackV)"/>
 
 
+<rect x="130" y="80" width="10" height="10" fill="url(#RG)"/>
+<rect x="130" y="100" width="10" height="10" fill="url(#GB)"/>
+<rect x="130" y="110" width="10" height="10" fill="url(#BR)"/>
 
 
 
@@ -598,8 +635,14 @@
 <text x="50" y="50">K</text>
 
 
-
-
+<text x="0" y="90">R</text>
+<text x="20" y="90">Y</text>
+<text x="40" y="90">G</text>
+<text x="60" y="90">C</text>
+<text x="80" y="90">B</text>
+<text x="100" y="90">M</text>
+<text x="120" y="90">R</text>
+<text x="60" y="90">C</text>
 
 
 
