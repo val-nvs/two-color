@@ -4,71 +4,38 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Honk:MORF@0..35&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Long+Cang&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 
-  <!-- Launch full-screen from Home Screen -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <!-- Home-screen icon (iOS) -->
-  <link rel="apple-touch-icon" href="/F814BB62-C0FA-4434-A9AE-198313FD8CA4.png">
-  <!-- Browser favicon -->
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <!-- (optional PNG favicon for modern browsers) -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-  <!-- 4. Theme-color (always black) -->
-  <meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Honk -->                      <link href="https://fonts.googleapis.com/css2?family=Honk:MORF@0..35&display=swap" rel="stylesheet">
+<!-- Aref Ruqaa Ink -->            <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700" rel="stylesheet">
+<!-- Atkinson Hyperlegible Next --><link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800" rel="stylesheet">
+<!-- Long Cang -->                 <link href="https://fonts.googleapis.com/css2?family=Long+Cang&display=swap" rel="stylesheet">
+<!-- Material Symbols Outlined --> <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+<!-- Launch full-screen from Home Screen -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<!-- Home-screen icon (iOS) -->
+<link rel="apple-touch-icon" href="/F814BB62-C0FA-4434-A9AE-198313FD8CA4.png">
+<!-- Browser favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<!-- (optional PNG favicon for modern browsers) -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<!-- 4. Theme-color (always black) -->
+<meta name="theme-color" content="#000000">
 
 <title>website</title>
 
 <style>
 
-  html{
+/* === VARIABLES & GLOBALS === */
+html {
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
-  }
+}
 
-.pageBox, .history {
-  display:flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.8rem; }
-
-
-.splitView{
-  display: flex;
-  justify-content: center;
-  gap: 0.4rem;
-  width:100%; }
-
-.sliderBox{
-  width:100%; }
-  
-.buttonGroup{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem; }
-.button{flex:1;}
-
-.photoFrame{
-  flex:1;
-  display:flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  background: #464646;
-  border-radius: 0.5rem; 
-  text-align: center; }
-.photoFrame img {border-radius:0.2rem;}
-
-body{
+body {
   background: #2b2b2b;
   font-family: "Atkinson Hyperlegible Next", sans-serif;
   font-size: 0.8rem;
@@ -77,93 +44,176 @@ body{
   margin: 0 auto;
 }
 
-p {margin: 0.3rem auto;}
-
-body img{
+body img {
   display: block;
-  width: 100%; }
+  width: 100%;
+}
 
-button {-webkit-appearance: none;
-  font: inherit; /*inherit*/
-  color: inherit; /*inherit*/
-  cursor: pointer; /*pointer*/
-  line-height: inherit; /*inherit*/
-  background-color: #464646; /* Primary button color */
+/* === RESET / BASE === */
+p {
+  margin: 0.3rem auto;
+}
+
+button {
+  -webkit-appearance: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  line-height: inherit;
+  background-color: #464646;
   padding: 0.4rem 0.6rem;
-  border: none; /*none*/
-  border-radius: 0.35rem; }
+  border: none;
+  border-radius: 0.35rem;
+}
+
 button:hover {
-  background-color: #444; /* on hover */
-  transform: translateY(0.2rem); /* Slight lift effect */}
+  background-color: #444;
+  transform: translateY(0.2rem);
+}
+
 button:active {
-  background-color: #0f0; /* on click */
-  transform: translateY(0); /* Button goes back to normal position */}
+  background-color: #0f0;
+  transform: translateY(0);
+}
+
 button:focus {
   outline: none;
-  background-color: #0ff; 
-  transform: translateY(0.2rem); /*  */ }
+  background-color: #0ff;
+  transform: translateY(0.2rem);
+}
 
-#protoanSlider::-webkit-slider-runnable-track {
-  background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00); }
-#longConeSlider::-webkit-slider-runnable-track {
-  background: linear-gradient(to right, #0ff, #00f, #f0f, #f00, #ff0, #0f0, #0ff); }
-#wbSlider::-webkit-slider-runnable-track {
-  background: linear-gradient(to right, #03d, #fff, #f10); }
+/* === LAYOUT === */
+.pageBox, .history {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.8rem;
+}
 
-input[type="range"] {
-  -webkit-appearance: none;
-  display: block;
-  width: 100%; }
-input[type="range"]::-webkit-slider-runnable-track {
-  background-size: 300% 100%;
-  height: 0.2rem; }
-input[type="range"]::-webkit-slider-thumb {
-  width: 2rem;
-  height: 1.5rem;
-  background: #fff;
-  border-radius: 10%;
-  cursor: pointer;
-  margin-top: -0.65rem; }
-input[type="range"]:hover::-webkit-slider-thumb {
-  background: rgba(255,255,255,0.5);
-  box-shadow: 0 0 0.5rem #fff; }
+.splitView {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+}
 
-  /* text */
+.sliderBox {
+  width: 100%;
+}
+
+/* === COMPONENTS === */
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.button {
+  flex: 1;
+  line-height: 0.5rem;
+  font-size: 0.5rem;
+}
+
+.photoFrame {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: #464646;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.photoFrame img {
+  border-radius: 0.2rem;
+}
+
+/* === TYPOGRAPHY === */
 .hanBig {
   transform: scaleY(1.7);
-  font-family:"Long Cang", serif;
+  font-family: "Long Cang", serif;
   font-size: 1rem;
   display: inline-block;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
+
 .hanHalf {
   transform: scaleY(1.0);
-  font-family:"Long Cang", serif;
+  font-family: "Long Cang", serif;
   font-size: 1rem;
   display: inline-block;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
+
 .tiny {
   font-size: 0.5rem;
   word-spacing: 0.01rem;
-  line-height: 0.2; }
-.header{
-  font-size: 5rem; 
+  line-height: 0.2;
+}
+
+.header {
+  font-size: 5rem;
   line-height: 0.59;
-  font-family:"Honk",sans-serif;}
+  font-family: "Honk", sans-serif;
+}
+
 .material-symbols-outlined {
   font-variation-settings:
     'FILL' 0,
     'wght' 400,
     'GRAD' 0,
     'opsz' 24;
-    font-size: 1.4rem; }
+  font-size: 1.4rem;
+}
 
-#mainImgBox{
-  width: 100%; }
-/*#mainImg{width: 100; }*/
+/* === FORM CONTROLS === */
+input[type="range"] {
+  -webkit-appearance: none;
+  display: block;
+  width: 100%;
+}
 
-.button{
-  line-height:0.5rem;
-  font-size:0.5rem;}
+input[type="range"]::-webkit-slider-runnable-track {
+  background-size: 300% 100%;
+  height: 0.2rem;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  width: 2rem;
+  height: 1.5rem;
+  background: #fff;
+  border-radius: 10%;
+  cursor: pointer;
+  margin-top: -0.65rem;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+  background: rgba(255,255,255,0.5);
+  box-shadow: 0 0 0.5rem #fff;
+}
+
+/* === VENDOR OVERRIDES === */
+#protoanSlider::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+}
+
+#longConeSlider::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #0ff, #00f, #f0f, #f00, #ff0, #0f0, #0ff);
+}
+
+#wbSlider::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #03d, #fff, #f10);
+}
+
+/* === ID RULES / ONE-OFFS === */
+#mainImgBox {
+  width: 100%;
+}
+
+/*#mainImg { width: 100; }*/  /* left intentionally commented out */
 
 </style>
 </head>
